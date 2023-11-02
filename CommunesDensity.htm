@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo: Densitatea populației pe comune</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      h2,
+      h3 {
+        margin: 10px;
+        font-size: 18px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+      p {
+        margin: 10px;
+      }
+      .map-overlay {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #fff;
+        margin-right: 20px;
+        font-family: Arial, sans-serif;
+        overflow: auto;
+        border-radius: 3px;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      #features {
+        top: 0;
+        height: 150px;
+        margin-top: 20px;
+        width: 350px;
+      }
+      #legend {
+        padding: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 18px;
+        height: 150px;
+        margin-bottom: 40px;
+        width: 170px;
+      }
+      .legend-key {
+        display: inline-block;
+        border-radius: 20%;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="map-overlay" id="features">
+      <h2>Densitatea populației pe comune:</h2>
+      <div id="pd"><p>Plasați cursorul peste o comună!</p></div>
+    </div>
+    <div class="map-overlay" id="legend">
+	  <h3>Persoane per km²</h3>
+    <script>
+      // define access token
+      mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1cmdxbGRlIn0.lhrPz4OIk0RNmJb2Q6S7Lg';
+
+      // create map
+      const map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/myshusp/clog5tkf3007501qqa84gdbin/draft', // map style URL from Mapbox Studio 
+		center: [29.060, 46.847],
+        zoom: 8
+      });
+
+      // wait for map to load before adjusting it
+      map.on('load', () => {
+        // make a pointer cursor
+        map.getCanvas().style.cursor = 'default';
+
+        // define layer names
+        const layers = [
+          '> 800.1',
+          '400.1 - 800.0',
+          '200.1 - 400.0',
+          '100.1 - 200.0',
+          '50.1 - 100.0',
+          '< 50.0',
+        ];
+        const colors = [
+          '#ff0000',
+          '#ff2a2a',
+          '#ff5555',
+          '#ff8080',
+          '#ffaaaa',
+          '#ffd5d5',
+        ];
+
+        // create legend
+        const legend = document.getElementById('legend');
+
+        layers.forEach((layer, i) => {
+          const color = colors[i];
+          const item = document.createElement('div');
+          const key = document.createElement('span');
+          key.className = 'legend-key';
+          key.style.backgroundColor = color;
+
+          const value = document.createElement('span');
+          value.innerHTML = `${layer}`;
+          item.appendChild(key);
+          item.appendChild(value);
+          legend.appendChild(item);
+        });
+
+        // change info window on hover
+        map.on('mousemove', (event) => {
+          const states = map.queryRenderedFeatures(event.point, {
+            layers: ['Communes']
+          });
+          document.getElementById('pd').innerHTML = states.length
+            ? `<h3>${states[0].properties.GFANAME}</h3><p><strong><em>${states[0].properties.DENSITY}</strong> persoane per km² </em></p>`
+            : `<p>Plasați cursorul peste o comună!</p>`;
+        });
+      });
+    </script>
+  </body>
+</html>
