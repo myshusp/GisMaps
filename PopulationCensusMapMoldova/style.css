@@ -228,8 +228,8 @@ h2,
 
 /* Collapsed */
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl-geocoder--collapsed {
-  width: 50px;
-  min-width: 50px;
+  width: 30px;
+  min-width: 30px;
   transition: width .25s, min-width .25s;
 }
 
