@@ -804,7 +804,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
 
         document.getElementById('pd').innerHTML = states.length
             ?`  
-                <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                <canvas id="myChart"></canvas>
             ` //.toLocaleString()
             : `<p>Alegeți o unitate administrativă...</p>`;
 
