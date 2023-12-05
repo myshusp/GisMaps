@@ -887,6 +887,26 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         map.getCanvas().style.cursor = '';
     });
 
+    // Add a scale control to the map
+    map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
+    // Add a full screen control to the map
+    map.addControl(new mapboxgl.FullscreenControl());
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // Add geolocate and rotation controls to the map.
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            // When active the map will receive updates to the device's location as it changes.
+            trackUserLocation: true,
+            // Draw an arrow next to the location dot to indicate which direction the device is heading.
+            showUserHeading: true
+        })
+    );    
+
     //create function for forwardGeocoder search query
     function forwardGeocoder(query) {
         const matchingFeatures = [];
@@ -918,27 +938,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             address: false,
             limit:1,
             placeholder: 'Caută localitate/CUATM...',
-            mapboxgl: mapboxgl
-        }), 'top-left', 
-    );
-
-    // Add a scale control to the map
-    map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
-    // Add a full screen control to the map
-    map.addControl(new mapboxgl.FullscreenControl());
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
-    // Add geolocate and rotation controls to the map.
-    map.addControl(
-        new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            // When active the map will receive updates to the device's location as it changes.
-            trackUserLocation: true,
-            // Draw an arrow next to the location dot to indicate which direction the device is heading.
-            showUserHeading: true
-        })
+            mapboxgl: mapboxgl,
+            collapsed: true
+        }), 'top-right',
     );
 
     // Add a styleSwitcherControler to the map
