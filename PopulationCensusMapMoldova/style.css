@@ -288,13 +288,13 @@ h2,
   vertical-align: middle;
   /* speak: none; */
   fill: #757575;
-  top: 0px;
+  top: 15px;
 }
 
 .mapboxgl-ctrl-geocoder--icon-search {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 13px;
+  left: 12px;
   width: 23px;
   height: 23px;
 }
@@ -309,7 +309,6 @@ h2,
 }
 
 .mapboxgl-ctrl-geocoder--icon-close {
-  display: inline-block;
   width: 20px;
   height: 20px;
   margin-top: 8px;
@@ -399,17 +398,16 @@ h2,
   }
 
   .mapboxgl-ctrl-geocoder--icon-close {
-    display: inline-block;
     width: 16px;
     height: 16px;
-    margin-top: 0px;
+    margin-top: 3px;
     margin-right: 0;
   }
 
   .mapboxgl-ctrl-geocoder--icon-geolocate {
     width: 18px;
     height: 18px;
-    margin-top: 0px;
+    margin-top: 2px;
     margin-right: 0;
   }
 
