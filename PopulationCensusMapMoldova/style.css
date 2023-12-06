@@ -380,8 +380,8 @@ to {
 @media screen and (min-width: 640px) {
 
 .mapboxgl-ctrl-geocoder.mapboxgl-ctrl-geocoder--collapsed {
-  width: 36px;
-  min-width: 36px;
+  width: 30px;
+  min-width: 30px;
 }
 
 .mapboxgl-ctrl-geocoder {
