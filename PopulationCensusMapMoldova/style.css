@@ -192,7 +192,7 @@ h2,
   border: 0;
   background-color: transparent;
   margin: 0;
-  height: 50px;
+  height: 30px;
   color: #404040; /* fallback */
   color: rgba(0, 0, 0, 0.75);
   padding: 6px 45px;
@@ -418,8 +418,8 @@ h2,
   }
 
   .mapboxgl-ctrl-geocoder--input {
-    height: 36px;
-    padding: 6px 35px;
+    height: 30px;
+    padding: 6px 29px;
   }
 
   .mapboxgl-ctrl-geocoder--icon-loading {
