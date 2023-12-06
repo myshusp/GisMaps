@@ -285,7 +285,7 @@ h2,
 /* Icons */
 .mapboxgl-ctrl-geocoder--icon {
   display: inline-block;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   /* speak: none; */
   fill: #757575;
   top: 15px;
@@ -397,12 +397,12 @@ h2,
     top: 8px;
   }
 
-  /* .mapboxgl-ctrl-geocoder--icon-close {
+  .mapboxgl-ctrl-geocoder--icon-close {
     width: 16px;
     height: 16px;
     margin-top: 3px;
     margin-right: 0;
-  } */
+  }
 
   .mapboxgl-ctrl-geocoder--icon-geolocate {
     width: 18px;
