@@ -400,9 +400,8 @@ h2,
   .mapboxgl-ctrl-geocoder--icon-close {
     width: 16px;
     height: 16px;
-    margin-top: 1px;
+    margin-top: 0px;
     margin-right: 0;
-    margin-left: 1px;
   }
 
   .mapboxgl-ctrl-geocoder--icon-geolocate {
