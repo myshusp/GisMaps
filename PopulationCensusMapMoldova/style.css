@@ -285,7 +285,7 @@ h2,
 /* Icons */
 .mapboxgl-ctrl-geocoder--icon {
   display: inline-block;
-  vertical-align: text-top;
+  vertical-align: baseline;
   /* speak: none; */
   fill: #757575;
   top: 15px;
