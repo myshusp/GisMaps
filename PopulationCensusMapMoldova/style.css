@@ -288,7 +288,7 @@ h2,
   vertical-align: middle;
   /* speak: none; */
   fill: #757575;
-  top: 0px;
+  top: 15px;
 }
 
 .mapboxgl-ctrl-geocoder--icon-search {
@@ -412,7 +412,7 @@ h2,
   }
 
   .mapboxgl-ctrl-geocoder--icon-search {
-    left: 7px;
+    left: 1px;
     width: 20px;
     height: 20px;
   }
