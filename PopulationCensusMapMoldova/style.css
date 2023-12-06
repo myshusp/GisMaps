@@ -285,7 +285,7 @@ h2,
 /* Icons */
 .mapboxgl-ctrl-geocoder--icon {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   speak: none;
   fill: #757575;
   top: 15px;
@@ -293,8 +293,8 @@ h2,
 
 .mapboxgl-ctrl-geocoder--icon-search {
   position: absolute;
-  top: 13px;
-  left: 12px;
+/*   top: 13px;
+  left: 12px; */
   width: 23px;
   height: 23px;
 }
