@@ -164,8 +164,8 @@ h2,
         background-size: 70%;
     }
 
-
-    /* Basics */
+/* Search Geocoder tool */
+/* Basics */
 .mapboxgl-ctrl-geocoder,
 .mapboxgl-ctrl-geocoder *,
 .mapboxgl-ctrl-geocoder *:after,
@@ -286,9 +286,9 @@ h2,
 .mapboxgl-ctrl-geocoder--icon {
   display: inline-block;
   vertical-align: middle;
-  speak: none;
+  /* speak: none; */
   fill: #757575;
-  top: 15px;
+  top: 0px;
 }
 
 .mapboxgl-ctrl-geocoder--icon-search {
