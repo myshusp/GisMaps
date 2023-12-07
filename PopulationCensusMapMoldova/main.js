@@ -566,12 +566,48 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         });
 
         //set legend priority
-        const nuts1LegendEl = document.getElementById('nuts1-legend');
-        const nuts2LegendEl = document.getElementById('nuts2-legend');
-        const regionLegendEl = document.getElementById('region-legend');
-        const stateLegendEl = document.getElementById('state-legend');
-        const countyLegendEl = document.getElementById('county-legend');
-        const localityLegendEl = document.getElementById('locality-legend');
+        const nuts1LegendEl = document.getElementById('nuts1-legend-gr1');
+
+        const nuts2LegendEl1 = document.getElementById('nuts2-legend-gr1');
+        const nuts2LegendEl2 = document.getElementById('nuts2-legend-gr2');
+
+        const nuts3LegendEl1 = document.getElementById('nuts3-legend-gr1');
+        const nuts3LegendEl2 = document.getElementById('nuts3-legend-gr2');
+        const nuts3LegendEl3 = document.getElementById('nuts3-legend-gr3');
+        const nuts3LegendEl4 = document.getElementById('nuts3-legend-gr4');
+        const nuts3LegendEl5 = document.getElementById('nuts3-legend-gr5');
+
+
+        const districtLegendEl1 = document.getElementById('district-legend-gr1');
+        const districtLegendEl2 = document.getElementById('district-legend-gr2');
+        const districtLegendEl3 = document.getElementById('district-legend-gr3');
+        const districtLegendEl4 = document.getElementById('district-legend-gr4');
+        const districtLegendEl5 = document.getElementById('district-legend-gr5');
+        const districtLegendEl6 = document.getElementById('district-legend-gr6');
+
+        const communeLegendEl1 = document.getElementById('commune-legend-gr1');
+        const communeLegendEl2 = document.getElementById('commune-legend-gr2');
+        const communeLegendEl3 = document.getElementById('commune-legend-gr3');
+        const communeLegendEl4 = document.getElementById('commune-legend-gr4');
+        const communeLegendEl5 = document.getElementById('commune-legend-gr5');
+        const communeLegendEl6 = document.getElementById('commune-legend-gr6');
+        const communeLegendEl7 = document.getElementById('commune-legend-gr7');
+        const communeLegendEl8 = document.getElementById('commune-legend-gr8');
+        const communeLegendEl9 = document.getElementById('commune-legend-gr9');
+
+
+        const localityLegendEl1 = document.getElementById('locality-legend-gr1');
+        const localityLegendEl2 = document.getElementById('locality-legend-gr2');
+        const localityLegendEl3 = document.getElementById('locality-legend-gr3');
+        const localityLegendEl4 = document.getElementById('locality-legend-gr4');
+        const localityLegendEl5 = document.getElementById('locality-legend-gr5');
+        const localityLegendEl6 = document.getElementById('locality-legend-gr6');
+        const localityLegendEl7 = document.getElementById('locality-legend-gr7');
+        const localityLegendEl8 = document.getElementById('locality-legend-gr8');
+        const localityLegendEl9 = document.getElementById('locality-legend-gr9');
+        const localityLegendEl10 = document.getElementById('locality-legend-gr10');
+        const localityLegendEl11 = document.getElementById('locality-legend-gr11');
+        const localityLegendEl12 = document.getElementById('locality-legend-gr12');
 
         document
         .getElementById('layer')
@@ -606,11 +642,46 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
 
                 nuts1LegendEl.style.display = 'block';
-                nuts2LegendEl.style.display = 'none';
-                regionLegendEl.style.display = 'none';
-                stateLegendEl.style.display = 'none';
-                countyLegendEl.style.display = 'none';
-                localityLegendEl.style.display = 'none';
+
+                nuts2LegendEl1.style.display = 'none';
+                nuts2LegendEl2.style.display = 'none';
+
+                nuts3LegendEl1.style.display = 'none';
+                nuts3LegendEl2.style.display = 'none';
+                nuts3LegendEl3.style.display = 'none';
+                nuts3LegendEl4.style.display = 'none';
+                nuts3LegendEl5.style.display = 'none';
+
+                districtLegendEl1.style.display = 'none';
+                districtLegendEl2.style.display = 'none';
+                districtLegendEl3.style.display = 'none';
+                districtLegendEl4.style.display = 'none';
+                districtLegendEl5.style.display = 'none';
+                districtLegendEl6.style.display = 'none';
+
+                communeLegendEl1.style.display = 'none';
+                communeLegendEl2.style.display = 'none';
+                communeLegendEl3.style.display = 'none';
+                communeLegendEl4.style.display = 'none';
+                communeLegendEl5.style.display = 'none';
+                communeLegendEl6.style.display = 'none';
+                communeLegendEl7.style.display = 'none';
+                communeLegendEl8.style.display = 'none';
+                communeLegendEl9.style.display = 'none';
+
+                localityLegendEl1.style.display = 'none';
+                localityLegendEl2.style.display = 'none';
+                localityLegendEl3.style.display = 'none';
+                localityLegendEl4.style.display = 'none';
+                localityLegendEl5.style.display = 'none';
+                localityLegendEl6.style.display = 'none';
+                localityLegendEl7.style.display = 'none';
+                localityLegendEl8.style.display = 'none';
+                localityLegendEl9.style.display = 'none';
+                localityLegendEl10.style.display = 'none';
+                localityLegendEl11.style.display = 'none';
+                localityLegendEl12.style.display = 'none';
+                
             } else if (changeLayerVisibility === 'nuts2') {
                 map.setLayoutProperty('nuts1-population', 'visibility', 'none');
                 map.setLayoutProperty('nuts1-population-selected', 'visibility', 'none');
@@ -638,11 +709,46 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
 
                 nuts1LegendEl.style.display = 'none';
-                nuts2LegendEl.style.display = 'block';
-                regionLegendEl.style.display = 'none';
-                stateLegendEl.style.display = 'none';
-                countyLegendEl.style.display = 'none';
-                localityLegendEl.style.display = 'none'
+
+                nuts2LegendEl1.style.display = 'block';
+                nuts2LegendEl2.style.display = 'block';
+
+                nuts3LegendEl1.style.display = 'none';
+                nuts3LegendEl2.style.display = 'none';
+                nuts3LegendEl3.style.display = 'none';
+                nuts3LegendEl4.style.display = 'none';
+                nuts3LegendEl5.style.display = 'none';
+
+                districtLegendEl1.style.display = 'none';
+                districtLegendEl2.style.display = 'none';
+                districtLegendEl3.style.display = 'none';
+                districtLegendEl4.style.display = 'none';
+                districtLegendEl5.style.display = 'none';
+                districtLegendEl6.style.display = 'none';
+
+                communeLegendEl1.style.display = 'none';
+                communeLegendEl2.style.display = 'none';
+                communeLegendEl3.style.display = 'none';
+                communeLegendEl4.style.display = 'none';
+                communeLegendEl5.style.display = 'none';
+                communeLegendEl6.style.display = 'none';
+                communeLegendEl7.style.display = 'none';
+                communeLegendEl8.style.display = 'none';
+                communeLegendEl9.style.display = 'none';
+
+                localityLegendEl1.style.display = 'none';
+                localityLegendEl2.style.display = 'none';
+                localityLegendEl3.style.display = 'none';
+                localityLegendEl4.style.display = 'none';
+                localityLegendEl5.style.display = 'none';
+                localityLegendEl6.style.display = 'none';
+                localityLegendEl7.style.display = 'none';
+                localityLegendEl8.style.display = 'none';
+                localityLegendEl9.style.display = 'none';
+                localityLegendEl10.style.display = 'none';
+                localityLegendEl11.style.display = 'none';
+                localityLegendEl12.style.display = 'none';
+
             } else if (changeLayerVisibility === 'nuts3') {
                 map.setLayoutProperty('nuts1-population', 'visibility', 'none');
                 map.setLayoutProperty('nuts1-population-selected', 'visibility', 'none');
@@ -669,11 +775,45 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
 
                 nuts1LegendEl.style.display = 'none';
-                nuts2LegendEl.style.display = 'none';
-                regionLegendEl.style.display = 'block';
-                stateLegendEl.style.display = 'none';
-                countyLegendEl.style.display = 'none';
-                localityLegendEl.style.display = 'none'
+
+                nuts2LegendEl1.style.display = 'none';
+                nuts2LegendEl2.style.display = 'none';
+
+                nuts3LegendEl1.style.display = 'block';
+                nuts3LegendEl2.style.display = 'block';
+                nuts3LegendEl3.style.display = 'block';
+                nuts3LegendEl4.style.display = 'block';
+                nuts3LegendEl5.style.display = 'block';
+
+                districtLegendEl1.style.display = 'none';
+                districtLegendEl2.style.display = 'none';
+                districtLegendEl3.style.display = 'none';
+                districtLegendEl4.style.display = 'none';
+                districtLegendEl5.style.display = 'none';
+                districtLegendEl6.style.display = 'none';
+
+                communeLegendEl1.style.display = 'none';
+                communeLegendEl2.style.display = 'none';
+                communeLegendEl3.style.display = 'none';
+                communeLegendEl4.style.display = 'none';
+                communeLegendEl5.style.display = 'none';
+                communeLegendEl6.style.display = 'none';
+                communeLegendEl7.style.display = 'none';
+                communeLegendEl8.style.display = 'none';
+                communeLegendEl9.style.display = 'none';
+
+                localityLegendEl1.style.display = 'none';
+                localityLegendEl2.style.display = 'none';
+                localityLegendEl3.style.display = 'none';
+                localityLegendEl4.style.display = 'none';
+                localityLegendEl5.style.display = 'none';
+                localityLegendEl6.style.display = 'none';
+                localityLegendEl7.style.display = 'none';
+                localityLegendEl8.style.display = 'none';
+                localityLegendEl9.style.display = 'none';
+                localityLegendEl10.style.display = 'none';
+                localityLegendEl11.style.display = 'none';
+                localityLegendEl12.style.display = 'none';
 
             } else if (changeLayerVisibility === 'raion') {
                 map.setLayoutProperty('nuts1-population', 'visibility', 'none');
@@ -701,11 +841,45 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
 
                 nuts1LegendEl.style.display = 'none';
-                nuts2LegendEl.style.display = 'none';
-                regionLegendEl.style.display = 'none';
-                stateLegendEl.style.display = 'block';
-                countyLegendEl.style.display = 'none';
-                localityLegendEl.style.display = 'none'
+
+                nuts2LegendEl1.style.display = 'none';
+                nuts2LegendEl2.style.display = 'none';
+
+                nuts3LegendEl1.style.display = 'none';
+                nuts3LegendEl2.style.display = 'none';
+                nuts3LegendEl3.style.display = 'none';
+                nuts3LegendEl4.style.display = 'none';
+                nuts3LegendEl5.style.display = 'none';
+
+                districtLegendEl1.style.display = 'block';
+                districtLegendEl2.style.display = 'block';
+                districtLegendEl3.style.display = 'block';
+                districtLegendEl4.style.display = 'block';
+                districtLegendEl5.style.display = 'block';
+                districtLegendEl6.style.display = 'block';
+
+                communeLegendEl1.style.display = 'none';
+                communeLegendEl2.style.display = 'none';
+                communeLegendEl3.style.display = 'none';
+                communeLegendEl4.style.display = 'none';
+                communeLegendEl5.style.display = 'none';
+                communeLegendEl6.style.display = 'none';
+                communeLegendEl7.style.display = 'none';
+                communeLegendEl8.style.display = 'none';
+                communeLegendEl9.style.display = 'none';
+
+                localityLegendEl1.style.display = 'none';
+                localityLegendEl2.style.display = 'none';
+                localityLegendEl3.style.display = 'none';
+                localityLegendEl4.style.display = 'none';
+                localityLegendEl5.style.display = 'none';
+                localityLegendEl6.style.display = 'none';
+                localityLegendEl7.style.display = 'none';
+                localityLegendEl8.style.display = 'none';
+                localityLegendEl9.style.display = 'none';
+                localityLegendEl10.style.display = 'none';
+                localityLegendEl11.style.display = 'none';
+                localityLegendEl12.style.display = 'none';
 
             } else if (changeLayerVisibility === 'comuna') {
                 map.setLayoutProperty('nuts1-population', 'visibility', 'none');
@@ -733,11 +907,45 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
 
                 nuts1LegendEl.style.display = 'none';
-                nuts2LegendEl.style.display = 'none';
-                regionLegendEl.style.display = 'none';
-                stateLegendEl.style.display = 'none';
-                countyLegendEl.style.display = 'block';
-                localityLegendEl.style.display = 'none'
+
+                nuts2LegendEl1.style.display = 'none';
+                nuts2LegendEl2.style.display = 'none';
+
+                nuts3LegendEl1.style.display = 'none';
+                nuts3LegendEl2.style.display = 'none';
+                nuts3LegendEl3.style.display = 'none';
+                nuts3LegendEl4.style.display = 'none';
+                nuts3LegendEl5.style.display = 'none';
+
+                districtLegendEl1.style.display = 'none';
+                districtLegendEl2.style.display = 'none';
+                districtLegendEl3.style.display = 'none';
+                districtLegendEl4.style.display = 'none';
+                districtLegendEl5.style.display = 'none';
+                districtLegendEl6.style.display = 'none';
+
+                communeLegendEl1.style.display = 'block';
+                communeLegendEl2.style.display = 'block';
+                communeLegendEl3.style.display = 'block';
+                communeLegendEl4.style.display = 'block';
+                communeLegendEl5.style.display = 'block';
+                communeLegendEl6.style.display = 'block';
+                communeLegendEl7.style.display = 'block';
+                communeLegendEl8.style.display = 'block';
+                communeLegendEl9.style.display = 'block';
+
+                localityLegendEl1.style.display = 'none';
+                localityLegendEl2.style.display = 'none';
+                localityLegendEl3.style.display = 'none';
+                localityLegendEl4.style.display = 'none';
+                localityLegendEl5.style.display = 'none';
+                localityLegendEl6.style.display = 'none';
+                localityLegendEl7.style.display = 'none';
+                localityLegendEl8.style.display = 'none';
+                localityLegendEl9.style.display = 'none';
+                localityLegendEl10.style.display = 'none';
+                localityLegendEl11.style.display = 'none';
+                localityLegendEl12.style.display = 'none';
 
             } else if (changeLayerVisibility === 'localitate') {
                 map.setLayoutProperty('nuts1-population', 'visibility', 'none');
@@ -765,11 +973,45 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
 
                 nuts1LegendEl.style.display = 'none';
-                nuts2LegendEl.style.display = 'none';
-                regionLegendEl.style.display = 'none';
-                stateLegendEl.style.display = 'none';
-                countyLegendEl.style.display = 'none';
-                localityLegendEl.style.display = 'block'
+
+                nuts2LegendEl1.style.display = 'none';
+                nuts2LegendEl2.style.display = 'none';
+
+                nuts3LegendEl1.style.display = 'none';
+                nuts3LegendEl2.style.display = 'none';
+                nuts3LegendEl3.style.display = 'none';
+                nuts3LegendEl4.style.display = 'none';
+                nuts3LegendEl5.style.display = 'none';
+
+                districtLegendEl1.style.display = 'none';
+                districtLegendEl2.style.display = 'none';
+                districtLegendEl3.style.display = 'none';
+                districtLegendEl4.style.display = 'none';
+                districtLegendEl5.style.display = 'none';
+                districtLegendEl6.style.display = 'none';
+
+                communeLegendEl1.style.display = 'none';
+                communeLegendEl2.style.display = 'none';
+                communeLegendEl3.style.display = 'none';
+                communeLegendEl4.style.display = 'none';
+                communeLegendEl5.style.display = 'none';
+                communeLegendEl6.style.display = 'none';
+                communeLegendEl7.style.display = 'none';
+                communeLegendEl8.style.display = 'none';
+                communeLegendEl9.style.display = 'none';
+
+                localityLegendEl1.style.display = 'block';
+                localityLegendEl2.style.display = 'block';
+                localityLegendEl3.style.display = 'block';
+                localityLegendEl4.style.display = 'block';
+                localityLegendEl5.style.display = 'block';
+                localityLegendEl6.style.display = 'block';
+                localityLegendEl7.style.display = 'block';
+                localityLegendEl8.style.display = 'block';
+                localityLegendEl9.style.display = 'block';
+                localityLegendEl10.style.display = 'block';
+                localityLegendEl11.style.display = 'block';
+                localityLegendEl12.style.display = 'block';
 
             } else {
             console.error('error');
@@ -1046,3 +1288,19 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         // { title: "Streets", uri: "mapbox://styles/mapbox/streets-v11" }
     ];
     map.addControl(new MapboxStyleSwitcherControl());
+
+    //Add collapsible legend
+    var coll = document.getElementsByClassName("legend");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+        content.style.display = "none";
+        } else {
+        content.style.display = "block";
+        }
+    });
+    }
