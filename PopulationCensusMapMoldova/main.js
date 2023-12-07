@@ -5,7 +5,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         style: 'mapbox://styles/myshusp/clomgkp5i009w01prgx844h9h',
         center: [28.167, 47.01],
         zoom: 6.8,
-        minZoom: 5,
+        minZoom: 6,
         // cooperativeGestures: true //Add cooperative gestures to a map
         
     });
