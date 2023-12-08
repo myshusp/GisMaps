@@ -1075,11 +1075,21 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 }]
             },
             options: {
-                legend: {display: false},
-                    title: {
-                        display: false,
-                        text: ""
-                    },
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: false,
+                    text: ""
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            min: 0,
+                        }
+                    }],
+                    bounds:'ticks'
+                },
             }
         })
     });
