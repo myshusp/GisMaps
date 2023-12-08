@@ -136,7 +136,7 @@ p {
   text-align: center;
   float: right;
   padding: 2px;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 }
 .active, .button-close-map-overlay:hover {
   background-color: #484848;
@@ -186,7 +186,7 @@ p {
   text-align: center;
   float: right;
   padding: 2px;
-  border-radius: 3px;
+  /* border-radius: 2px; */
 }
 
 .active, .button-close-legend:hover {
