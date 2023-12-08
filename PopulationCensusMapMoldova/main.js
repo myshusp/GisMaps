@@ -1024,7 +1024,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         addAdditionalSourceAndLayer();
     });
 
-     // change info window on mousemove
+    // change info window on mousemove
     map.on('click', (event) => {
         const states = map.queryRenderedFeatures(event.point, {
             layers: ['nuts1-population', 'nuts2-population', 'nuts3-population', 'district-population', 'communes-population', 'locality-population']
@@ -1280,27 +1280,48 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
     }
     MapboxStyleSwitcherControl.DEFAULT_STYLE = "Dark";
     MapboxStyleSwitcherControl.DEFAULT_STYLES = [
-        { title: "Dark", uri: "mapbox://styles/myshusp/clomgkp5i009w01prgx844h9h" },
+        { title: "Întunecat", uri: "mapbox://styles/myshusp/clomgkp5i009w01prgx844h9h" },
         // { title: "Light", uri: "mapbox://styles/mapbox/light-v10" },
-        { title: "Outdoors", uri: "mapbox://styles/myshusp/clp16ohrs019o01pm0jh2c81t" },
-        { title: "Navigation", uri: "mapbox://styles/myshusp/clp16vgja002301qxdk3wfh2h" },
-        { title: "Satellite", uri: "mapbox://styles/myshusp/cloymspqu014401prgji1cvb0" },
+        { title: "Luminos", uri: "mapbox://styles/myshusp/clp16ohrs019o01pm0jh2c81t" },
+        { title: "Navigare", uri: "mapbox://styles/myshusp/clp16vgja002301qxdk3wfh2h" },
+        { title: "Satelit", uri: "mapbox://styles/myshusp/cloymspqu014401prgji1cvb0" },
         // { title: "Streets", uri: "mapbox://styles/mapbox/streets-v11" }
     ];
     map.addControl(new MapboxStyleSwitcherControl());
 
-    //Add collapsible legend
-    var coll = document.getElementsByClassName("legend");
-    var i;
+    //Add collapsible Caracteristici (map-overlay)
+    $(function () {
+        $(".button-open-map-overlay").hide();
+        $(".button-close-map-overlay").bind("click", function () {
+            $(".map-overlay").hide(100);        
 
-    for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-        content.style.display = "none";
-        } else {
-        content.style.display = "block";
-        }
-    });
-    }
+            if ($(this).attr("class") == "button-close-map-overlay") {
+                $(".button-open-map-overlay").show();
+            }
+        });
+        $(".button-open-map-overlay").bind("click", function () {
+            $(".map-overlay").show(100);        
+            if ($(this).attr("class") == "button-open-map-overlay")
+            {
+                $(".button-open-map-overlay").hide();
+            }
+            });
+    });    
+
+    //Add collapsible legend   
+    $(function () {
+        $(".button-open-legend").hide();
+        $(".button-close-legend").bind("click", function () {
+            $(".content").hide(100);        
+
+            if ($(this).attr("class") == "button-close-legend") {
+                $(".button-open-legend").show();
+            }
+        });
+        $(".button-open-legend").bind("click", function () {
+            $(".content").show(100);        
+            if ($(this).attr("class") == "button-open-legend") {
+                $(".button-open-legend").hide();
+            }
+        });
+    }); 
