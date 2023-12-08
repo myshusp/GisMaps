@@ -87,28 +87,36 @@ h2,
 
   .legend {
     cursor: pointer;
+    display: block;
     opacity: 1;
-    border-radius: 3px;
-    top: 265px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    border-radius: 4px;
+    top: 262px;
+    border: 0;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding: 10px;
     position: absolute;
     right: 10px;
+    float: right;
     z-index: 1;
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
+    width: 29px;
+    height: 29px;
+    min-width: 29px;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
     transition: width .25s, min-width .25s;
     background: url('data:image/svg+xml;charset=UTF-8,<svg height="512pt" viewBox="0 0 512 512.0005" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m220 0h-200c-11.046875 0-20 8.953125-20 20v200c0 11.046875 8.953125 20 20 20h200c11.046875 0 20-8.953125 20-20v-200c0-11.046875-8.953125-20-20-20zm-20 200h-160v-160h160zm299.65625 73.523438c-7.472656-3.097657-16.078125-1.386719-21.796875 4.332031l-200 200c-5.722656 5.722656-7.433594 14.324219-4.335937 21.796875 3.097656 7.476562 10.386718 12.347656 18.476562 12.347656h200c11.046875 0 20-8.953125 20-20v-200c0-8.089844-4.871094-15.382812-12.34375-18.476562zm-27.65625 198.476562h-131.714844l131.714844-131.714844zm-80-232c66.167969 0 120-53.832031 120-120s-53.832031-120-120-120-120 53.832031-120 120 53.832031 120 120 120zm0-200c44.113281 0 80 35.886719 80 80s-35.886719 80-80 80-80-35.886719-80-80 35.886719-80 80-80zm-157.859375 266.144531-85.855469 85.855469 85.855469 85.855469c7.8125 7.8125 7.8125 20.476562 0 28.285156-7.808594 7.808594-20.472656 7.8125-28.28125 0l-85.859375-85.855469-85.859375 85.859375c-7.808594 7.808594-20.472656 7.808594-28.28125 0-7.8125-7.8125-7.8125-20.476562 0-28.285156l85.855469-85.859375-85.855469-85.855469c-7.8125-7.8125-7.8125-20.476562 0-28.285156 7.808594-7.8125 20.472656-7.8125 28.28125 0l85.859375 85.855469 85.859375-85.859375c7.808594-7.808594 20.472656-7.808594 28.28125 0 7.8125 7.8125 7.8125 20.476562 0 28.289062zm0 0"/></svg>');
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #fff;
+    background-color: white;
     background-size: 70%;
   }
 
   .active, .legend:hover {
-    background-color: #ebebeb;
+    background-color: #f3f3f3;
   }
 
   .content {
@@ -116,7 +124,7 @@ h2,
     opacity: 0.9;
     background-color: #fff;
     border-radius: 3px;
-    bottom: 30px;
+    bottom: 35px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding: 10px;
@@ -404,7 +412,7 @@ to {
 }
 
 .mapboxgl-ctrl-geocoder--icon {
-  top: 8px;
+  top: 5px;
 }
 
 .mapboxgl-ctrl-geocoder--icon-close {
