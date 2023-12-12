@@ -1041,14 +1041,28 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
 
         document.getElementById('pd2').innerHTML = states.length
             ?`  <h2>Caracteristici (${states[0].properties.GFNAME})</h2>
-            ` //.toLocaleString()
-            : `<h2>Caracteristici </h2>`;
-
+            `
+            :  `<h2>Caracteristici </h2>`;
+        
         document.getElementById('pd').innerHTML = states.length
             ?`  
-                <canvas id="myChart" style="width:device-width;max-width:device-width"></canvas>
-            ` //.toLocaleString()
+                <div id="pd"><p>Alegeți o unitate administrativă...</p></div>
+            `
+            :  `<p>Alegeți o unitate administrativă...</p>`;
+
+        if(`${states[0].properties.GOVCONT}`== 1) {
+            document.getElementById('pd').innerHTML = states.length
+            ?`  
+                <canvas id="myChart" style="width:device-width;max-width:device-width;height=device-height"></canvas>
+            `
             : `<p>Alegeți o unitate administrativă...</p>`;
+        } else {
+            document.getElementById('pd').innerHTML = states.length
+            ?`  
+               <p>Lipsă date...</p>
+            `
+            : `<p>Alegeți o unitate administrativă...</p>`;
+        }  
 
         var xValues = [
             "Persoane",
@@ -1061,37 +1075,57 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             `${states[0].properties.LOCUINTE_2014}`,
         ];
         var barColors = [
-            "yellow",
-            "orange",
-            "green",
+            "#a0ff00",
+            "#00eaff",
+            "#e6007e",
         ];
-        var chart = new Chart("myChart",{
-            type: "horizontalBar",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: barColors,
-                    data: yValues
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
+        Chart.register(ChartDataLabels);
+        if (`${states[0].properties.GOVCONT}`== 1) {
+            new Chart("myChart",{
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
                 },
-                title: {
-                    display: false,
-                    text: ""
-                },
-                scales: {
-                    xAxes: [{
-                        ticks: {
-                            min: 0,
-                        }
-                    }],
-                    bounds:'ticks'
-                },
-            }
-        })
+                options: {
+                    skipNull: true,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: {
+                        display: false
+                        },
+                        datalabels: {
+                            display: true,
+                            color: 'black',
+                            // anchor: 'end',
+                            align: 'center',
+                            labels: {
+                            title: {
+                                font: {
+                                weight: 'italic'
+                                }
+                            },
+                            },
+                            formatter: function addCommas(nStr) {
+                                nStr += '';
+                                x = nStr.split('.');
+                                x1 = x[0];
+                                x2 = x.length > 1 ? '.' + x[1] : '';
+                                var rgx = /(\d+)(\d{3})/;
+                                while (rgx.test(x1)) {
+                                    x1 = x1.replace(rgx, '$1' + '.' + '$2');
+                                }
+                                return x1 + x2;
+                            }
+                        },
+                    },
+
+                }
+            })
+        }
     });
 
     map.on('mouseenter','nuts1-population', () => {
