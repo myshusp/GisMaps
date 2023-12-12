@@ -1322,7 +1322,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             }
         }
     }
-    MapboxStyleSwitcherControl.DEFAULT_STYLE = "Dark";
+    MapboxStyleSwitcherControl.DEFAULT_STYLE = "Întunecat";
     MapboxStyleSwitcherControl.DEFAULT_STYLES = [
         { title: "Întunecat", uri: "mapbox://styles/myshusp/clomgkp5i009w01prgx844h9h" },
         { title: "Navigare", uri: "mapbox://styles/myshusp/clp16ohrs019o01pm0jh2c81t" },
