@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Template map for Moldova</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1cmdxbGRlIn0.lhrPz4OIk0RNmJb2Q6S7Lg';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/myshusp/clomgkp5i009w01prgx844h9h',
+        center: [28.167, 47.01],
+        zoom: 6.8,
+        minZoom: 6,
+        // cooperativeGestures: true //Add cooperative gestures to a map
+        
+    });
+
+    // Add layer source
+    map.on('load', () => {
+        // make a pointer cursor
+        map.getCanvas().style.cursor = 'default';
+        // define layers sources and names
+        map.addSource('lau', {
+            'type': 'geojson',
+            'data': 'https://myshusp.github.io/GisMaps/SectorizareRPL2024/geojson/Sectorizare_raioane_VD.geojson'
+        });
+        //Add layer
+        map.addLayer(
+            {
+                'id': 'lau2_sectoare',
+                'source': 'lau',
+                'type': 'fill',
+                'paint': {
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'VD_crs'],
+                        0,
+                        'grey',
+                        1,
+                        'red',
+                        2,
+                        'yellow',
+                        3,
+                        'blue',
+                        4,
+                        'green'
+                    ],
+                    'fill-opacity': 0.6,
+                    'fill-outline-color':'#ffffff'
+                },
+                'filter': ['==', 'UNITLVLID', 5]
+            },
+        );
+
+        map.addLayer(
+            {
+                'id': 'lau1-line-border',
+                'source': 'lau',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'visible',
+                },
+                'paint': {
+                    'line-width': 1,
+                    'line-opacity': 1,
+                    'line-color':'black'
+                },
+                'filter': ['==', 'UNITLVLID', 4]
+            },
+        );
+
+    });
+
+    // Add a scale control to the map
+    map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
+    // Add a full screen control to the map
+    map.addControl(new mapboxgl.FullscreenControl());
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+    
+</script>
+
+</body>
+</html>
