@@ -82,6 +82,32 @@ body { margin: 0; padding: 0; }
             },
         );
 
+        map.addLayer({
+                'id': 'communes-labels',
+                'source': 'lau',
+                'minzoom': 9,
+                'type': 'symbol',
+                'symbol-avoid-edges': true,
+                'text-allow-overlap': true,
+                'symbol-placement': 'point',
+                'font-scale': 100,
+                'layout': {
+                    'visibility': 'visible',
+                    'text-field': ['get', 'GFNAME'],
+                    'text-variable-anchor': ['center'],
+                    'text-radial-offset': 1.5,
+                    'text-justify': 'center',
+                    'text-size': 12,
+                    'text-padding': 2,
+                    'text-font': ['Open Sans Regular'],
+                    // 'text-offset': [0.85, -1.7],
+                },
+                'paint': {
+                "text-color": "white",
+                },
+                'filter': ['==', 'UNITLVLID', 5]
+        });
+
     });
 
     // Add a scale control to the map
