@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
     const map = new mapboxgl.Map({
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        style: 'mapbox://styles/myshusp/clqvajjpr00yp01o91lrz3zg0',
+        style: 'mapbox://styles/myshusp/clqvad63b010f01nw7xro4yj2',
         center: [28.167, 47.01],
         zoom: 6.8,
         minZoom: 6,
@@ -13,117 +13,46 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
     // Add GeoJSON source and layer
     function addAdditionalSourceAndLayer() {
 
-        map.addSource('lau', {
+        map.addSource('sectorizare', {
             'type': 'geojson',
-            'data': 'https://myshusp.github.io/GisMaps/SectoareRPL2024/geojson/Sectorizare_raioane_VD.geojson'
+            'data': 'https://myshusp.github.io/GisMaps/SectoareRPL2024/geojson/SectorizareRPL2024.geojson'
         });
         map.addLayer(
             {
                 'id': 'lau-tara-polygon',
-                'source': 'lau',
+                'source': 'sectorizare',
                 'type': 'fill',
                 'layout': {
                     'visibility': 'visible',
                 },
                 'paint': {
-                    'fill-color': 'blue',
-                    'fill-opacity': 0.3,
-                    // 'fill-outline-color':'#ffffff'
+                    'fill-color': '#c7675d',
+                    'fill-opacity': 0.5,
                 },
-                'filter': ['==', 'UNITLVLID', 1]
+                'filter': ['==', 'id_lvl', 1]
             },
         );
         map.addLayer(
             {
                 'id': 'lau-tara-line-border',
-                'source': 'lau',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'visible',
                 },
                 'paint': {
-                    'line-width': 2,
+                    'line-width': 1,
                     'line-opacity': 1,
                     'line-color':'black'
                 },
-                'filter': ['==', 'UNITLVLID', 1]
+                'filter': ['==', 'id_lvl', 1]
             },
         );
 
         map.addLayer(
             {
                 'id': 'lau-tara-line-border2',
-                'source': 'lau',
-                'type': 'line',
-                'layout': {
-                    'visibility': 'none',
-                },
-                'paint': {
-                    'line-width': 3,
-                    'line-opacity': 1,
-                    'line-color':'black'
-                },
-                'filter': ['==', 'UNITLVLID', 1]
-            },
-        );
-
-        map.addLayer(
-            {
-                'id': 'lau-tara-line-border-selected',
-                'source': 'lau',
-                'type': 'line',
-                'layout': {
-                    'visibility': 'visible',
-                },
-                'paint': {
-                    'line-width': 3,
-                    'line-opacity': 1,
-                    'line-color':'#ffffff'
-                },
-                'filter': ['all', ['==', 'UNITLVLID', 1], ['in', 'CODST', '']]
-            },
-        );
-
-        map.addSource('crs', {
-            'type': 'geojson',
-            'data': 'https://myshusp.github.io/GisMaps/SectoareRPL2024/geojson/CRS_Moldova.geojson'
-        });
-        map.addLayer(
-            {
-                'id': 'crs-polygon',
-                'source': 'crs',
-                'type': 'fill',
-                'layout': {
-                    'visibility': 'none',
-                },
-                'paint': {
-                    'fill-color': 'blue',
-                    'fill-opacity': 0.3,
-                    // 'fill-outline-color':'#ffffff'
-                },
-            },
-            'lau-tara-line-border2'
-        );
-        map.addLayer(
-            {
-                'id': 'crs-line-border',
-                'source': 'crs',
-                'type': 'line',
-                'layout': {
-                    'visibility': 'none',
-                },
-                'paint': {
-                    'line-width': 1,
-                    'line-opacity': 1,
-                    'line-color':'red'
-                },
-            },
-            'lau-tara-line-border2'
-        );
-        map.addLayer(
-            {
-                'id': 'crs-line-border2',
-                'source': 'crs',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -131,15 +60,83 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 2.5,
                     'line-opacity': 1,
+                    'line-color':'black'
+                },
+                'filter': ['==', 'id_lvl', 1]
+            },
+        );
+
+        map.addLayer(
+            {
+                'id': 'lau-tara-line-border-selected',
+                'source': 'sectorizare',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'visible',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'white'
+                },
+                'filter': ['all', ['==', 'id_lvl', 1], ['in', 'obj_code', '']]
+            },
+        );
+
+        map.addLayer(
+            {
+                'id': 'crs-polygon',
+                'source': 'sectorizare',
+                'type': 'fill',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'fill-color': '#c7675d',
+                    'fill-opacity': 0.5,
+                },
+                'filter': ['==', 'id_lvl', 2]
+            },
+            'lau-tara-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'crs-line-border',
+                'source': 'sectorizare',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 1,
+                    'line-opacity': 1,
                     'line-color':'red'
                 },
+                'filter': ['==', 'id_lvl', 2]
+            },
+            'lau-tara-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'crs-line-border2',
+                'source': 'sectorizare',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 2.2,
+                    'line-opacity': 1,
+                    'line-color':'red'
+                },
+                'filter': ['==', 'id_lvl', 2]
             },
             'lau-tara-line-border2'
         );
         map.addLayer(
             {
                 'id': 'crs-line-border-selected',
-                'source': 'crs',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -147,26 +144,26 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 3,
                     'line-opacity': 1,
-                    'line-color':'#ffffff'
+                    'line-color':'white'
                 },
-                'filter':  ['in', 'NAME', '']
+                'filter': ['all', ['==', 'id_lvl', 2], ['in', 'obj_code', '']]
             },
         );
 
         map.addLayer(
             {
                 'id': 'district-polygon',
-                'source': 'lau',
+                'source': 'sectorizare',
                 'type': 'fill',
                 'layout': {
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': 'blue',
-                    'fill-opacity': 0.3,
+                    'fill-color': '#c7675d',
+                    'fill-opacity': 0.5,
                     // 'fill-outline-color':'#ffffff'
                 },
-                'filter': ['==', 'UNITLVLID', 4]
+                'filter': ['==', 'id_lvl', 3]
             },
             'crs-line-border2'
         );
@@ -174,7 +171,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         map.addLayer(
             {
                 'id': 'district-line-border',
-                'source': 'lau',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -184,14 +181,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'yellow'
                 },
-                'filter': ['==', 'UNITLVLID', 4]
+                'filter': ['==', 'id_lvl', 3]
             },
             'crs-line-border2'
         );
         map.addLayer(
             {
                 'id': 'district-line-border2',
-                'source': 'lau',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -201,14 +198,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'yellow'
                 },
-                'filter': ['==', 'UNITLVLID', 4]
+                'filter': ['==', 'id_lvl', 3]
             },
             'crs-line-border2'
         );
         map.addLayer(
             {
                 'id': 'district-line-border-selected',
-                'source': 'lau',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -218,34 +215,30 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'#ffffff'
                 },
-                'filter': ['all', ['==', 'UNITLVLID', 4], ['in', 'CODST', '']]
+                'filter': ['all', ['==', 'id_lvl', 3], ['in', 'obj_code', '']]
             },
         );
 
-        map.addSource('sectoare-supv', {
-            'type': 'geojson',
-            'data': 'https://myshusp.github.io/GisMaps/SectoareRPL2024/geojson/Sectoare_supv.geojson'
-        });
         map.addLayer(
             {
                 'id': 'sectoare-supv-polygon',
-                'source': 'sectoare-supv',
+                'source': 'sectorizare',
                 'type': 'fill',
                 'layout': {
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': 'blue',
-                    'fill-opacity': 0.3,
-                    // 'fill-outline-color':'#ffffff'
+                    'fill-color': '#c7675d',
+                    'fill-opacity': 0.5,
                 },
+                'filter': ['==', 'id_lvl', 4]
             },
             'district-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-supv-line-border',
-                'source': 'sectoare-supv',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -255,13 +248,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'orange'
                 },
+                'filter': ['==', 'id_lvl', 4]
             },
             'district-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-supv-line-border2',
-                'source': 'sectoare-supv',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -271,13 +265,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'orange'
                 },
+                'filter': ['==', 'id_lvl', 4]
             },
             'district-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-supv-line-border-selected',
-                'source': 'sectoare-supv',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -287,34 +282,54 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'#ffffff'
                 },
-                'filter': ['==', 'code_supv', '']
+                'filter': ['all', ['==', 'id_lvl', 4], ['in', 'obj_code', '']]
             },
         );
-
-        map.addSource('sectoare-enum', {
-            'type': 'geojson',
-            'data': 'https://myshusp.github.io/GisMaps/SectoareRPL2024/geojson/Sectoare_enum.geojson'
+        map.addLayer({
+            'id': 'sectoare-supv-labels',
+            'source': 'sectorizare',
+            'minzoom': 9,
+            'type': 'symbol',
+            'symbol-avoid-edges': true,
+            'text-allow-overlap': true,
+            'symbol-placement': 'point',
+            'font-scale': 100,
+            'layout': {
+                'visibility': 'none',
+                'text-field': ['get', 'name_obj'],
+                'text-variable-anchor': ['center'],
+                'text-radial-offset': 1.5,
+                'text-justify': 'center',
+                'text-size': 12,
+                'text-padding': 2,
+                'text-font': ['Open Sans Regular'],
+            },
+            'paint': {
+            "text-color": "white",
+            },
+            'filter': ['==', 'id_lvl', 4]
         });
+
         map.addLayer(
             {
                 'id': 'sectoare-enum-polygon',
-                'source': 'sectoare-enum',
+                'source': 'sectorizare',
                 'type': 'fill',
                 'layout': {
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': 'blue',
-                    'fill-opacity': 0.3,
-                    // 'fill-outline-color':'#ffffff'
+                    'fill-color': '#c7675d',
+                    'fill-opacity': 0.5,
                 },
+                'filter': ['==', 'id_lvl', 5]
             },
             'sectoare-supv-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-enum-line-border',
-                'source': 'sectoare-enum',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -324,13 +339,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'black'
                 },
+                'filter': ['==', 'id_lvl', 5]
             },
             'sectoare-supv-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-enum-line-border2',
-                'source': 'sectoare-enum',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -340,13 +356,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'black'
                 },
+                'filter': ['==', 'id_lvl', 5]
             },
             'sectoare-supv-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-enum-line-border-selected',
-                'source': 'sectoare-enum',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -356,37 +373,54 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'#ffffff'
                 },
-                'filter': ['==', 'code_enum', '']
+                'filter': ['all', ['==', 'id_lvl', 5], ['in', 'obj_code', '']]
             },
         );
-        
-
-        map.addSource('sectoare', {
-            'type': 'geojson',
-            'data': 'https://myshusp.github.io/GisMaps/SectoareRPL2024/geojson/Sectoare.geojson'
+        map.addLayer({
+            'id': 'sectoare-enum-labels',
+            'source': 'sectorizare',
+            'minzoom': 10,
+            'type': 'symbol',
+            'symbol-avoid-edges': true,
+            'text-allow-overlap': true,
+            'symbol-placement': 'point',
+            'font-scale': 100,
+            'layout': {
+                'visibility': 'none',
+                'text-field': ['get', 'name_obj'],
+                'text-variable-anchor': ['center'],
+                'text-radial-offset': 1.5,
+                'text-justify': 'center',
+                'text-size': 12,
+                'text-padding': 2,
+                'text-font': ['Open Sans Regular'],
+            },
+            'paint': {
+            "text-color": "white",
+            },
+            'filter': ['==', 'id_lvl', 5]
         });
 
         map.addLayer(
             {
                 'id': 'sectoare-polygon',
-                'source': 'sectoare',
+                'source': 'sectorizare',
                 'type': 'fill',
                 'layout': {
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': 'blue',
-                    'fill-opacity': 0.3,
-                    // 'fill-outline-color':'white',
-                    
+                    'fill-color': '#c7675d',
+                    'fill-opacity': 0.5,
                 },
+                'filter': ['==', 'id_lvl', 6]
             },
             'sectoare-enum-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-line-border',
-                'source': 'sectoare',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -396,13 +430,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'white'
                 },
+                'filter': ['==', 'id_lvl', 6]
             },
             'sectoare-enum-line-border2'
         );
         map.addLayer(
             {
                 'id': 'sectoare-line-border-selected',
-                'source': 'sectoare',
+                'source': 'sectorizare',
                 'type': 'line',
                 'layout': {
                     'visibility': 'none',
@@ -412,13 +447,38 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'#ffffff'
                 },
-                'filter': ['==', 'code_ea', '']
+                'filter': ['all', ['==', 'id_lvl', 6], ['in', 'obj_code', '']]
             },
         );
 
+        map.addLayer({
+            'id': 'sectoare-labels',
+            'source': 'sectorizare',
+            'minzoom': 11,
+            'type': 'symbol',
+            'symbol-avoid-edges': true,
+            'text-allow-overlap': true,
+            'symbol-placement': 'point',
+            'font-scale': 100,
+            'layout': {
+                'visibility': 'none',
+                'text-field': ['get', 'name_obj'],
+                'text-variable-anchor': ['center'],
+                'text-radial-offset': 1.5,
+                'text-justify': 'center',
+                'text-size': 12,
+                'text-padding': 2,
+                'text-font': ['Open Sans Regular'],
+            },
+            'paint': {
+            "text-color": "white",
+            },
+            'filter': ['==', 'id_lvl', 6]
+        });
+
         map.addSource('locality', {
             'type': 'geojson',
-            'data': 'https://myshusp.github.io/GisMaps/LayersData/Locality_RepublicOfMoldova_Point.geojson'
+            'data': 'https://myshusp.github.io/GisMaps/SectoareRPL2024/geojson/Locality_RepublicOfMoldova_Point.geojson'
         });
         map.addLayer({
             'id': 'locality-population-labels',
@@ -438,13 +498,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'text-size': 12,
                 'text-padding': 2,
                 'text-font': ['Open Sans Regular'],
-                // 'text-offset': [0.85, -1.7],
             },
             'paint': {
             "text-color": "white",
             },
-            // 'filter': ['!=', 'STATID', 621] 
-    });
+        });
 
 
         document
@@ -472,15 +530,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
             } else if (changeLayerVisibility === 'crs') {
@@ -503,15 +564,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
             } else if (changeLayerVisibility === 'raion') {
@@ -534,15 +598,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
             } else if (changeLayerVisibility === 'supervizor') {
@@ -565,15 +632,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'visible');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
             } else if (changeLayerVisibility === 'recenzor') {
@@ -596,15 +666,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'visible');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
             } else if (changeLayerVisibility === 'sector') {
@@ -627,15 +700,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-labels', 'visibility', 'visible');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
             } else {
@@ -661,67 +737,53 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             ]
         });
         const fips = states.map(
-            (feature) => feature.properties.CODST
+            (feature) => feature.properties.obj_code
         );
-        // const fips1 = states.map(
-        //     (feature) => feature.properties.NAME
-        // );
-        // const fips2 = states.map(
-        //     (feature) => feature.properties.code_supv
-        // );
-        // const fips3 = states.map(
-        //     (feature) => feature.properties.code_enum
-        // );
-        // const fips4 = states.map(
-        //     (feature) => feature.properties.code_ea
-        // );
-        map.setFilter('lau-tara-line-border-selected', ['all', ['==', 'UNITLVLID', 1], ['in', 'CODST', ...fips]]);
-        // map.setFilter('crs-line-border-selected', ['==', 'NAME', ...fips1]);
-        map.setFilter('district-line-border-selected', ['all', ['==', 'UNITLVLID', 4], ['in', 'CODST', ...fips]]);
-        // map.setFilter('sectoare-supv-line-border-selected',  ['==', 'code_supv', ...fips2]);
-        // map.setFilter('sectoare-enum-line-border-selected',  ['==', 'code_enum', ...fips3]);
-        // map.setFilter('sectoare-line-border-selected',  ['==', 'code_ea', ...fips4]);
+        map.setFilter('lau-tara-line-border-selected', ['all', ['==', 'id_lvl', 1], ['in', 'obj_code', ...fips]]);
+        map.setFilter('crs-line-border-selected', ['all', ['==', 'id_lvl', 2], ['in', 'obj_code', ...fips]]);
+        map.setFilter('district-line-border-selected', ['all', ['==', 'id_lvl', 3], ['in', 'obj_code', ...fips]]);
+        map.setFilter('sectoare-supv-line-border-selected',  ['all', ['==', 'id_lvl', 4], ['in', 'obj_code', ...fips]]);
+        map.setFilter('sectoare-enum-line-border-selected',  ['all', ['==', 'id_lvl', 5], ['in', 'obj_code', ...fips]]);
+        map.setFilter('sectoare-line-border-selected',  ['all', ['==', 'id_lvl', 6], ['in', 'obj_code', ...fips]]);
 
         document.getElementById('pd').innerHTML = states.length
         ?`  
-            <div id="pd"><p>Alegeți o unitate administrativă...</p></div>
+            <div id="pd"><p>Alegeți o unitate statistică...</p></div>
         `
-        :  `<p>Alegeți o unitate administrativă...</p>`;
+        :  `<p>Alegeți o unitate statistică...</p>`;
 
-        if(`${states[0].properties.UNITLVLID}`== 1 || `${states[0].properties.UNITLVLID}`== 4 || `${states[0].properties.UNITLVLID}`== 31) {
+        if(`${states[0].properties.id_lvl}`== 1 || `${states[0].properties.id_lvl}`== 2 || `${states[0].properties.id_lvl}`== 3  ) {
             document.getElementById('pd').innerHTML = states.length
-                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
-                   <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
-                   <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
-                   <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
-                : `<p>Alegeți o unitate administrativă...</p>`;
-        } else if (`${states[0].properties.UNITLVLID}`== 100){
+            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosupv.toLocaleString()} </span></strong></em></h3>
+            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
+            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+            : `<p>Alegeți o unitate statistică...</p>`;
+        } else if (`${states[0].properties.id_lvl}`== 4){
             document.getElementById('pd').innerHTML = states.length
-            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
-            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
-            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
-            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
-         : `<p>Alegeți o unitate administrativă...</p>`;
-        } else if (`${states[0].properties.UNITLVLID}`== 101){
+            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
+            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+            : `<p>Alegeți o unitate statistică...</p>`;
+        } else if (`${states[0].properties.id_lvl}`== 5){
             document.getElementById('pd').innerHTML = states.length
-            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
-            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
-            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
-            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
-         : `<p>Alegeți o unitate administrativă...</p>`;
-        } else if (`${states[0].properties.UNITLVLID}`== 102){
+            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+         : `<p>Alegeți o unitate statistică...</p>`;
+        } else if (`${states[0].properties.id_lvl}`== 6){
             document.getElementById('pd').innerHTML = states.length
-            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
-            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
-            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
-            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
-         : `<p>Alegeți o unitate administrativă...</p>`;
+            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+         : `<p>Alegeți o unitate statistică...</p>`;
         } else {
             document.getElementById('pd').innerHTML = states.length
             ?`  
                <p>Lipsă date...</p>
             `
-            : `<p>Alegeți o unitate administrativă...</p>`;
+            : `<p>Alegeți o unitate statistică...</p>`;
         }
     });
 
@@ -773,6 +835,120 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
     map.addControl(new mapboxgl.FullscreenControl());
     // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl());
+    // Add geolocate and rotation controls to the map.
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            // When active the map will receive updates to the device's location as it changes.
+            trackUserLocation: true,
+            // Draw an arrow next to the location dot to indicate which direction the device is heading.
+            showUserHeading: true
+        })
+    );
+    
+    // Add a styleSwitcherControler to the map
+    class MapboxStyleSwitcherControl {
+        constructor(styles, options) {
+            this.styles = styles || MapboxStyleSwitcherControl.DEFAULT_STYLES;
+            const defaultStyle = typeof (options) === "string" ? options : options ? options.defaultStyle : undefined;
+            this.defaultStyle = defaultStyle || MapboxStyleSwitcherControl.DEFAULT_STYLE;
+            this.onDocumentClick = this.onDocumentClick.bind(this);
+            this.events = typeof (options) !== "string" && options ? options.eventListeners : undefined;
+        }
+        getDefaultPosition() {
+            const defaultPosition = "top-right";
+            return defaultPosition;
+        }
+        onAdd(map) {
+            this.map = map;
+            this.controlContainer = document.createElement("div");
+            this.controlContainer.classList.add("mapboxgl-ctrl");
+            this.controlContainer.classList.add("mapboxgl-ctrl-group");
+            this.mapStyleContainer = document.createElement("div");
+            this.styleButton = document.createElement("button");
+            this.styleButton.type = "button";
+            this.mapStyleContainer.classList.add("mapboxgl-style-list");
+            for (const style of this.styles) {
+                const styleElement = document.createElement("button");
+                styleElement.type = "button";
+                styleElement.innerText = style.title;
+                styleElement.classList.add(style.title.replace(/[^a-z0-9-]/gi, '_'));
+                styleElement.dataset.uri = JSON.stringify(style.uri);
+                styleElement.addEventListener("click", event => {
+                    const srcElement = event.srcElement;
+                    this.closeModal();
+                    if (srcElement.classList.contains("active")) {
+                        return;
+                    }
+                    if (this.events && this.events.onOpen && this.events.onOpen(event)) {
+                        return;
+                    }
+                    const style = JSON.parse(srcElement.dataset.uri);
+                    this.map.setStyle(style);
+                    const elms = this.mapStyleContainer.getElementsByClassName("active");
+                    while (elms[0]) {
+                        elms[0].classList.remove("active");
+                    }
+                    srcElement.classList.add("active");
+                    if (this.events && this.events.onChange && this.events.onChange(event, style)) {
+                        return;
+                    }
+                });
+                if (style.title === this.defaultStyle) {
+                    styleElement.classList.add("active");
+                }
+                this.mapStyleContainer.appendChild(styleElement);
+            }
+            this.styleButton.classList.add("mapboxgl-ctrl-icon");
+            this.styleButton.classList.add("mapboxgl-style-switcher");
+            this.styleButton.addEventListener("click", event => {
+                if (this.events && this.events.onSelect && this.events.onSelect(event)) {
+                    return;
+                }
+                this.openModal();
+            });
+            document.addEventListener("click", this.onDocumentClick);
+            this.controlContainer.appendChild(this.styleButton);
+            this.controlContainer.appendChild(this.mapStyleContainer);
+            return this.controlContainer;
+        }
+        onRemove() {
+            if (!this.controlContainer || !this.controlContainer.parentNode || !this.map || !this.styleButton) {
+                return;
+            }
+            this.styleButton.removeEventListener("click", this.onDocumentClick);
+            this.controlContainer.parentNode.removeChild(this.controlContainer);
+            document.removeEventListener("click", this.onDocumentClick);
+            this.map = undefined;
+        }
+        closeModal() {
+            if (this.mapStyleContainer && this.styleButton) {
+                this.mapStyleContainer.style.display = "none";
+                this.styleButton.style.display = "block";
+            }
+        }
+        openModal() {
+            if (this.mapStyleContainer && this.styleButton) {
+                this.mapStyleContainer.style.display = "block";
+                this.styleButton.style.display = "none";
+            }
+        }
+        onDocumentClick(event) {
+            if (this.controlContainer && !this.controlContainer.contains(event.target)) {
+                this.closeModal();
+            }
+        }
+    }
+    MapboxStyleSwitcherControl.DEFAULT_STYLE = "Întunecat";
+    MapboxStyleSwitcherControl.DEFAULT_STYLES = [
+        { title: "Întunecat", uri: "mapbox://styles/myshusp/clqvad63b010f01nw7xro4yj2" },
+        { title: "Navigare", uri: "mapbox://styles/myshusp/clp16ohrs019o01pm0jh2c81t" },
+        { title: "Satelit", uri: "mapbox://styles/myshusp/clqvajjpr00yp01o91lrz3zg0" },
+    ];
+    map.addControl(new MapboxStyleSwitcherControl());
+    
 
         //Add collapsible Caracteristici (map-overlay)
         $(function () {
