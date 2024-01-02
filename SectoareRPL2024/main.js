@@ -27,7 +27,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 },
                 'paint': {
                     'fill-color': 'blue',
-                    'fill-opacity': 0.6,
+                    'fill-opacity': 0.3,
                     // 'fill-outline-color':'#ffffff'
                 },
                 'filter': ['==', 'UNITLVLID', 1]
@@ -42,11 +42,45 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'visible',
                 },
                 'paint': {
-                    'line-width': 1,
+                    'line-width': 2,
                     'line-opacity': 1,
-                    'line-color':'white'
+                    'line-color':'black'
                 },
                 'filter': ['==', 'UNITLVLID', 1]
+            },
+        );
+
+        map.addLayer(
+            {
+                'id': 'lau-tara-line-border2',
+                'source': 'lau',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'black'
+                },
+                'filter': ['==', 'UNITLVLID', 1]
+            },
+        );
+
+        map.addLayer(
+            {
+                'id': 'lau-tara-line-border-selected',
+                'source': 'lau',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'visible',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'#ffffff'
+                },
+                'filter': ['all', ['==', 'UNITLVLID', 1], ['in', 'CODST', '']]
             },
         );
 
@@ -64,10 +98,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 },
                 'paint': {
                     'fill-color': 'blue',
-                    'fill-opacity': 0.6,
+                    'fill-opacity': 0.3,
                     // 'fill-outline-color':'#ffffff'
                 },
             },
+            'lau-tara-line-border2'
         );
         map.addLayer(
             {
@@ -80,8 +115,41 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 1,
                     'line-opacity': 1,
-                    'line-color':'white'
+                    'line-color':'red'
                 },
+            },
+            'lau-tara-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'crs-line-border2',
+                'source': 'crs',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 2.5,
+                    'line-opacity': 1,
+                    'line-color':'red'
+                },
+            },
+            'lau-tara-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'crs-line-border-selected',
+                'source': 'crs',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'#ffffff'
+                },
+                'filter':  ['in', 'NAME', '']
             },
         );
 
@@ -95,11 +163,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 },
                 'paint': {
                     'fill-color': 'blue',
-                    'fill-opacity': 0.6,
+                    'fill-opacity': 0.3,
                     // 'fill-outline-color':'#ffffff'
                 },
                 'filter': ['==', 'UNITLVLID', 4]
             },
+            'crs-line-border2'
         );
         
         map.addLayer(
@@ -111,11 +180,45 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'line-width': 4,
+                    'line-width': 1,
                     'line-opacity': 1,
-                    'line-color':'red'
+                    'line-color':'yellow'
                 },
                 'filter': ['==', 'UNITLVLID', 4]
+            },
+            'crs-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'district-line-border2',
+                'source': 'lau',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 2,
+                    'line-opacity': 1,
+                    'line-color':'yellow'
+                },
+                'filter': ['==', 'UNITLVLID', 4]
+            },
+            'crs-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'district-line-border-selected',
+                'source': 'lau',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'#ffffff'
+                },
+                'filter': ['all', ['==', 'UNITLVLID', 4], ['in', 'CODST', '']]
             },
         );
 
@@ -132,12 +235,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': '#00ffff',
-                    'fill-opacity': 0.6,
+                    'fill-color': 'blue',
+                    'fill-opacity': 0.3,
                     // 'fill-outline-color':'#ffffff'
                 },
             },
-            'district-line-border'
+            'district-line-border2'
         );
         map.addLayer(
             {
@@ -148,12 +251,44 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'line-width': 2,
+                    'line-width': 0.5,
                     'line-opacity': 1,
-                    'line-color':'blue'
+                    'line-color':'orange'
                 },
             },
-            'district-line-border'
+            'district-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'sectoare-supv-line-border2',
+                'source': 'sectoare-supv',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 1.5,
+                    'line-opacity': 1,
+                    'line-color':'orange'
+                },
+            },
+            'district-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'sectoare-supv-line-border-selected',
+                'source': 'sectoare-supv',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'#ffffff'
+                },
+                'filter': ['==', 'code_supv', '']
+            },
         );
 
         map.addSource('sectoare-enum', {
@@ -169,12 +304,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': '#00ffff',
-                    'fill-opacity': 0.6,
+                    'fill-color': 'blue',
+                    'fill-opacity': 0.3,
                     // 'fill-outline-color':'#ffffff'
                 },
             },
-            'sectoare-supv-line-border'
+            'sectoare-supv-line-border2'
         );
         map.addLayer(
             {
@@ -185,12 +320,44 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'line-width': 1.5,
+                    'line-width': 0.5,
                     'line-opacity': 1,
                     'line-color':'black'
                 },
             },
-            'sectoare-supv-line-border'
+            'sectoare-supv-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'sectoare-enum-line-border2',
+                'source': 'sectoare-enum',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 1,
+                    'line-opacity': 1,
+                    'line-color':'black'
+                },
+            },
+            'sectoare-supv-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'sectoare-enum-line-border-selected',
+                'source': 'sectoare-enum',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'#ffffff'
+                },
+                'filter': ['==', 'code_enum', '']
+            },
         );
         
 
@@ -208,13 +375,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': 'magenta',
+                    'fill-color': 'blue',
                     'fill-opacity': 0.3,
                     // 'fill-outline-color':'white',
                     
                 },
             },
-            'sectoare-enum-line-border'
+            'sectoare-enum-line-border2'
         );
         map.addLayer(
             {
@@ -230,7 +397,23 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-color':'white'
                 },
             },
-            'sectoare-enum-line-border'
+            'sectoare-enum-line-border2'
+        );
+        map.addLayer(
+            {
+                'id': 'sectoare-line-border-selected',
+                'source': 'sectoare',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'#ffffff'
+                },
+                'filter': ['==', 'code_ea', '']
+            },
         );
 
         map.addSource('locality', {
@@ -240,7 +423,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         map.addLayer({
             'id': 'locality-population-labels',
             'source': 'locality',
-            'minzoom': 9,
+            'minzoom': 11,
             'type': 'symbol',
             'symbol-avoid-edges': true,
             'text-allow-overlap': true,
@@ -272,134 +455,189 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             if (changeLayerVisibility === 'tara') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('lau-tara-line-border-selected', 'visibility', 'visible');
 
                 map.setLayoutProperty('crs-polygon', 'visibility', 'none');
                 map.setLayoutProperty('crs-line-border', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('district-polygon', 'visibility', 'none');
                 map.setLayoutProperty('district-line-border', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
-
             } else if (changeLayerVisibility === 'crs') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
+                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('crs-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('crs-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border-selected', 'visibility', 'visible');
 
                 map.setLayoutProperty('district-polygon', 'visibility', 'none');
                 map.setLayoutProperty('district-line-border', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
-
-
             } else if (changeLayerVisibility === 'raion') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
+                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('crs-polygon', 'visibility', 'none');
                 map.setLayoutProperty('crs-line-border', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('district-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('district-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border-selected', 'visibility', 'visible');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
-
-
             } else if (changeLayerVisibility === 'supervizor') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
+                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('crs-polygon', 'visibility', 'none');
                 map.setLayoutProperty('crs-line-border', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('district-polygon', 'visibility', 'none');
-                map.setLayoutProperty('district-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'visible');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
-
-
             } else if (changeLayerVisibility === 'recenzor') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
-                map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
+                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('crs-polygon', 'visibility', 'none');
-                map.setLayoutProperty('crs-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('district-polygon', 'visibility', 'none');
-                map.setLayoutProperty('district-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'visible');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
-
-
             } else if (changeLayerVisibility === 'sector') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
-                map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
+                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('crs-polygon', 'visibility', 'none');
-                map.setLayoutProperty('crs-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('district-polygon', 'visibility', 'none');
-                map.setLayoutProperty('district-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'visible');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
-
-
             } else {
                 console.error('error');
                 }
@@ -408,6 +646,125 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
 
     map.on('style.load', () => {
         addAdditionalSourceAndLayer();
+    });
+
+    // change info window on mousemove
+    map.on('click', (event) => {
+        const states = map.queryRenderedFeatures(event.point, {
+            layers: [
+                'lau-tara-polygon',
+                'crs-polygon',
+                'district-polygon',
+                'sectoare-supv-polygon',
+                'sectoare-enum-polygon',
+                'sectoare-polygon'
+            ]
+        });
+        const fips = states.map(
+            (feature) => feature.properties.CODST
+        );
+        // const fips1 = states.map(
+        //     (feature) => feature.properties.NAME
+        // );
+        // const fips2 = states.map(
+        //     (feature) => feature.properties.code_supv
+        // );
+        // const fips3 = states.map(
+        //     (feature) => feature.properties.code_enum
+        // );
+        // const fips4 = states.map(
+        //     (feature) => feature.properties.code_ea
+        // );
+        map.setFilter('lau-tara-line-border-selected', ['all', ['==', 'UNITLVLID', 1], ['in', 'CODST', ...fips]]);
+        // map.setFilter('crs-line-border-selected', ['==', 'NAME', ...fips1]);
+        map.setFilter('district-line-border-selected', ['all', ['==', 'UNITLVLID', 4], ['in', 'CODST', ...fips]]);
+        // map.setFilter('sectoare-supv-line-border-selected',  ['==', 'code_supv', ...fips2]);
+        // map.setFilter('sectoare-enum-line-border-selected',  ['==', 'code_enum', ...fips3]);
+        // map.setFilter('sectoare-line-border-selected',  ['==', 'code_ea', ...fips4]);
+
+        document.getElementById('pd').innerHTML = states.length
+        ?`  
+            <div id="pd"><p>Alegeți o unitate administrativă...</p></div>
+        `
+        :  `<p>Alegeți o unitate administrativă...</p>`;
+
+        if(`${states[0].properties.UNITLVLID}`== 1 || `${states[0].properties.UNITLVLID}`== 4 || `${states[0].properties.UNITLVLID}`== 31) {
+            document.getElementById('pd').innerHTML = states.length
+                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
+                   <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
+                   <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
+                   <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
+                : `<p>Alegeți o unitate administrativă...</p>`;
+        } else if (`${states[0].properties.UNITLVLID}`== 100){
+            document.getElementById('pd').innerHTML = states.length
+            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
+            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
+            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
+            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
+         : `<p>Alegeți o unitate administrativă...</p>`;
+        } else if (`${states[0].properties.UNITLVLID}`== 101){
+            document.getElementById('pd').innerHTML = states.length
+            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
+            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
+            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
+            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
+         : `<p>Alegeți o unitate administrativă...</p>`;
+        } else if (`${states[0].properties.UNITLVLID}`== 102){
+            document.getElementById('pd').innerHTML = states.length
+            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.GFNAME} </span></strong></em></h3>
+            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosup} </span></strong></em></h3>
+            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum} </span></strong></em></h3>
+            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea} </span></strong></em></h3>`
+         : `<p>Alegeți o unitate administrativă...</p>`;
+        } else {
+            document.getElementById('pd').innerHTML = states.length
+            ?`  
+               <p>Lipsă date...</p>
+            `
+            : `<p>Alegeți o unitate administrativă...</p>`;
+        }
+    });
+
+    map.on('mouseenter','lau-tara-polygon', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'lau-tara-polygon', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter','crs-polygon', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'crs-polygon', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter','district-polygon', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'district-polygon', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter','sectoare-supv-polygon', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'sectoare-supv-polygon', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter','sectoare-enum-polygon', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'sectoare-enum-polygon', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter','sectoare-polygon', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'sectoare-polygon', () => {
+        map.getCanvas().style.cursor = '';
     });
 
     // Add a scale control to the map
