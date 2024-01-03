@@ -544,6 +544,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         });
 
 
+        //set legend priority
+        const contGov = document.getElementById('control-guvernamental');
+        const terContrLegend = document.getElementById('teritoriu-controlat-legend');
+        const terNecontrLegend = document.getElementById('teritoriu-necontrolat-legend');
+        const sectorLegend = document.getElementById('sector-legend');
+        const recenzorLegend = document.getElementById('recenzor-legend');
+        const supervizorLegend = document.getElementById('supervizor-legend');
+        const districtLegend = document.getElementById('district-legend');
+        const crsLegend = document.getElementById('crs-legend');
+        const taraLegend = document.getElementById('tara-legend');
+
         document
         .getElementById('layer')
         .addEventListener('change', (event) => {
@@ -583,6 +594,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
+
+                contGov.style.display = 'none';
+                terContrLegend.style.display = 'none';
+                terNecontrLegend.style.display = 'none';
+                sectorLegend .style.display = 'none';
+                recenzorLegend .style.display = 'none';
+                supervizorLegend .style.display = 'none';
+                districtLegend.style.display = 'none';
+                crsLegend.style.display = 'none';
+                taraLegend.style.display = 'block';
             } else if (changeLayerVisibility === 'crs') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
@@ -617,6 +638,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
+
+
+                contGov.style.display = 'block';
+                terContrLegend.style.display = 'block';
+                terNecontrLegend.style.display = 'block';
+                sectorLegend .style.display = 'none';
+                recenzorLegend .style.display = 'none';
+                supervizorLegend .style.display = 'none';
+                districtLegend.style.display = 'none';
+                crsLegend.style.display = 'block';
+                taraLegend.style.display = 'block';
             } else if (changeLayerVisibility === 'raion') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
@@ -651,6 +683,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
+
+                contGov.style.display = 'block';
+                terContrLegend.style.display = 'block';
+                terNecontrLegend.style.display = 'block';
+                sectorLegend .style.display = 'none';
+                recenzorLegend .style.display = 'none';
+                supervizorLegend .style.display = 'none';
+                districtLegend.style.display = 'block';
+                crsLegend.style.display = 'block';
+                taraLegend.style.display = 'block';
             } else if (changeLayerVisibility === 'supervizor') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
@@ -685,6 +727,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
+
+                contGov.style.display = 'block';
+                terContrLegend.style.display = 'block';
+                terNecontrLegend.style.display = 'block';
+                sectorLegend .style.display = 'none';
+                recenzorLegend .style.display = 'none';
+                supervizorLegend .style.display = 'block';
+                districtLegend.style.display = 'block';
+                crsLegend.style.display = 'block';
+                taraLegend.style.display = 'block';
             } else if (changeLayerVisibility === 'recenzor') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
@@ -719,6 +771,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
+
+                contGov.style.display = 'block';
+                terContrLegend.style.display = 'block';
+                terNecontrLegend.style.display = 'block';
+                sectorLegend .style.display = 'none';
+                recenzorLegend .style.display = 'block';
+                supervizorLegend .style.display = 'block';
+                districtLegend.style.display = 'block';
+                crsLegend.style.display = 'block';
+                taraLegend.style.display = 'block';
             } else if (changeLayerVisibility === 'sector') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
@@ -753,6 +815,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-labels', 'visibility', 'visible');
 
                 map.setLayoutProperty('locality-population-labels', 'visibility', 'visible');
+
+                contGov.style.display = 'block';
+                terContrLegend.style.display = 'block';
+                terNecontrLegend.style.display = 'block';
+                sectorLegend .style.display = 'block';
+                recenzorLegend .style.display = 'block';
+                supervizorLegend .style.display = 'block';
+                districtLegend.style.display = 'block';
+                crsLegend.style.display = 'block';
+                taraLegend.style.display = 'block';
             } else {
                 console.error('error');
                 }
@@ -1006,4 +1078,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     $(".button-open-map-overlay").hide();
                 }
                 });
-        }); 
+        });
+        
+            //Add collapsible legend   
+    $(function () {
+        $(".button-open-legend").hide();
+        $(".button-close-legend").bind("click", function () {
+            $(".content").hide(100);        
+
+            if ($(this).attr("class") == "button-close-legend") {
+                $(".button-open-legend").show();
+            }
+        });
+        $(".button-open-legend").bind("click", function () {
+            $(".content").show(100);        
+            if ($(this).attr("class") == "button-open-legend") {
+                $(".button-open-legend").hide();
+            }
+        });
+    }); 
