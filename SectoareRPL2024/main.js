@@ -92,7 +92,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': '#c7675d',
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'GOVCONT'],
+                        '0',
+                        '#c7675d',
+                        '1',
+                        '#c7675d',
+                    ],
                     'fill-opacity': 0.5,
                 },
                 'filter': ['==', 'id_lvl', 2]
