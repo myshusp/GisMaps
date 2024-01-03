@@ -95,10 +95,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'fill-color': [
                         'interpolate',
                         ['linear'],
-                        ['get', 'GOVCONT'],
-                        '0',
-                        '#c7675d',
-                        '1',
+                        ['get', 'gov_cont'],
+                        0,
+                        '#D5D5D5',
+                        1,
                         '#c7675d',
                     ],
                     'fill-opacity': 0.5,
@@ -167,9 +167,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': '#c7675d',
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'gov_cont'],
+                        0,
+                        '#D5D5D5',
+                        1,
+                        '#c7675d',
+                    ],
                     'fill-opacity': 0.5,
-                    // 'fill-outline-color':'#ffffff'
                 },
                 'filter': ['==', 'id_lvl', 3]
             },
@@ -236,7 +243,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': '#c7675d',
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'gov_cont'],
+                        0,
+                        '#D5D5D5',
+                        1,
+                        '#c7675d',
+                    ],
                     'fill-opacity': 0.5,
                 },
                 'filter': ['==', 'id_lvl', 4]
@@ -327,7 +342,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': '#c7675d',
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'gov_cont'],
+                        0,
+                        '#D5D5D5',
+                        1,
+                        '#c7675d',
+                    ],
                     'fill-opacity': 0.5,
                 },
                 'filter': ['==', 'id_lvl', 5]
@@ -418,7 +441,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'visibility': 'none',
                 },
                 'paint': {
-                    'fill-color': '#c7675d',
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'gov_cont'],
+                        0,
+                        '#D5D5D5',
+                        1,
+                        '#c7675d',
+                    ],
                     'fill-opacity': 0.5,
                 },
                 'filter': ['==', 'id_lvl', 6]
