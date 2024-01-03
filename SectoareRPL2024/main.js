@@ -863,39 +863,83 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         `
         :  `<p>Alegeți o unitate statistică...</p>`;
 
-        if(`${states[0].properties.id_lvl}`== 1 || `${states[0].properties.id_lvl}`== 2 || `${states[0].properties.id_lvl}`== 3  ) {
-            document.getElementById('pd').innerHTML = states.length
-            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
-            <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosupv.toLocaleString()} </span></strong></em></h3>
-            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
-            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
-            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
-            : `<p>Alegeți o unitate statistică...</p>`;
-        } else if (`${states[0].properties.id_lvl}`== 4){
-            document.getElementById('pd').innerHTML = states.length
-            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
-            <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
-            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
-            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
-            : `<p>Alegeți o unitate statistică...</p>`;
-        } else if (`${states[0].properties.id_lvl}`== 5){
-            document.getElementById('pd').innerHTML = states.length
-            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
-            <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
-            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
-         : `<p>Alegeți o unitate statistică...</p>`;
-        } else if (`${states[0].properties.id_lvl}`== 6){
-            document.getElementById('pd').innerHTML = states.length
-            ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
-            <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
-         : `<p>Alegeți o unitate statistică...</p>`;
+        if(`${states[0].properties.gov_cont}`== 1) {
+            if(`${states[0].properties.id_lvl}`== 1 || `${states[0].properties.id_lvl}`== 2 || `${states[0].properties.id_lvl}`== 3  ) {
+                document.getElementById('pd').innerHTML = states.length
+                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosupv.toLocaleString()} </span></strong></em></h3>
+                <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
+                <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+                <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+                : `<p>Alegeți o unitate statistică...</p>`;
+            } else if (`${states[0].properties.id_lvl}`== 4){
+                document.getElementById('pd').innerHTML = states.length
+                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
+                <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+                <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+                : `<p>Alegeți o unitate statistică...</p>`;
+            } else if (`${states[0].properties.id_lvl}`== 5){
+                document.getElementById('pd').innerHTML = states.length
+                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+                <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+             : `<p>Alegeți o unitate statistică...</p>`;
+            } else if (`${states[0].properties.id_lvl}`== 6){
+                document.getElementById('pd').innerHTML = states.length
+                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+             : `<p>Alegeți o unitate statistică...</p>`;
+            } else {
+                document.getElementById('pd').innerHTML = states.length
+                ?`  
+                   <p>Lipsă date...</p>
+                `
+                : `<p>Alegeți o unitate statistică...</p>`;
+            }
         } else {
             document.getElementById('pd').innerHTML = states.length
             ?`  
-               <p>Lipsă date...</p>
+                <h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <p><strong><em><span style="color:red"> !!! Teritoriu fără control guvernamental </span></strong></em></p>
             `
             : `<p>Alegeți o unitate statistică...</p>`;
+
+
         }
+        // if(`${states[0].properties.id_lvl}`== 1 || `${states[0].properties.id_lvl}`== 2 || `${states[0].properties.id_lvl}`== 3  ) {
+        //     document.getElementById('pd').innerHTML = states.length
+        //     ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+        //     <h3>Supervizori: <strong><em><span style="color:red"> ${states[0].properties.nosupv.toLocaleString()} </span></strong></em></h3>
+        //     <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
+        //     <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+        //     <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+        //     : `<p>Alegeți o unitate statistică...</p>`;
+        // } else if (`${states[0].properties.id_lvl}`== 4){
+        //     document.getElementById('pd').innerHTML = states.length
+        //     ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+        //     <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
+        //     <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+        //     <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+        //     : `<p>Alegeți o unitate statistică...</p>`;
+        // } else if (`${states[0].properties.id_lvl}`== 5){
+        //     document.getElementById('pd').innerHTML = states.length
+        //     ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+        //     <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+        //     <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+        //  : `<p>Alegeți o unitate statistică...</p>`;
+        // } else if (`${states[0].properties.id_lvl}`== 6){
+        //     document.getElementById('pd').innerHTML = states.length
+        //     ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+        //     <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+        //  : `<p>Alegeți o unitate statistică...</p>`;
+        // } else {
+        //     document.getElementById('pd').innerHTML = states.length
+        //     ?`  
+        //        <p>Lipsă date...</p>
+        //     `
+        //     : `<p>Alegeți o unitate statistică...</p>`;
+        // }
     });
 
     map.on('mouseenter','lau-tara-polygon', () => {
