@@ -43,15 +43,34 @@
         <h3></h3>
         <div id="groups" style="margin: 15px;">
             <h3 id="control-guvernamental" style="display: none">Control guvernamental</h3>
+
             <div id="teritoriu-controlat-legend" style="display: none"><span style="background-color: #c7675d"></span>da</div>
             <div id="teritoriu-necontrolat-legend" style="display: none"><span style="background-color: #D5D5D5"></span>nu</div>
             <p></p>
-            <div id="sector-legend" style="display: none"><span style="background-color: white; border: solid 0.5px black;border-radius: 20%;display: inline-block;height: 1px;width: 20px;margin-right: 5px;"></span>limite sector</div>
-            <div id="recenzor-legend" style="display: none"><span style="background-color: black;border-radius: 20%;display: inline-block;height: 2px;width: 20px;margin-right: 5px;"></span>limite sector recenzor</div>
-            <div id="supervizor-legend" style="display: none"><span style="background-color: orange;border-radius: 20%;display: inline-block;height: 2.5px;width: 20px;margin-right: 5px;"></span>limite sector supervizor</div>
-            <div id="district-legend" style="display: none"><span style="background-color: yellow;border-radius: 20%;display: inline-block;height: 3px;width: 20px;margin-right: 5px;"></span>limite raion</div> 
-            <div id="crs-legend" style="display: none"><span style="background-color: red;border-radius: 20%;display: inline-block;height: 3.2px;width: 20px;margin-right: 5px;"></span>limite CRS</div>   
-            <div id="tara-legend" style="display: block"><span style="background-color: black;border-radius: 20%;display: inline-block;height: 3.4px;width: 20px;margin-right: 5px;"></span>limite țară</div>
+            <div id="sector-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-sector" name="checkbox-sector" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-sector"><div style="display: inline"><span style="background-color: white; border: solid 0.5px black;border-radius: 20%;display: inline-block;height: 1px;width: 20px;margin-right: 5px;"></span>limite sector</div></label>
+            </div>
+            <div id="recenzor-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-recenzor" name="checkbox-recenzor" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-recenzor"><div style="display: inline"><span style="background-color: black;border-radius: 20%;display: inline-block;height: 2px;width: 20px;margin-right: 5px;"></span>limite sector recenzor</div></label>
+            </div>
+            <div id="supervizor-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-supervizor" name="checkbox-supervizor" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-supervizor"><div style="display: inline"><span style="background-color: orange;border-radius: 20%;display: inline-block;height: 2.5px;width: 20px;margin-right: 5px;"></span>limite sector supervizor</div></label>
+            </div>
+            <div id="district-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-district" name="checkbox-district" checked="checked" value="true" style="display: visible;">
+            <label for="checkbox-district"><div style="display: inline"><span style="background-color: yellow;border-radius: 20%;display: inline-block;height: 3px;width: 20px;margin-right: 5px;"></span>limite raion</div></label>
+            </div>
+            <div id="crs-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-crs" name="checkbox-crs" checked="checked" value="true" style="display: visible;">
+            <label for="checkbox-crs"><div style="display: inline"><span style="background-color: red;border-radius: 20%;display: inline-block;height: 3.2px;width: 20px;margin-right: 5px;"></span>limite CRS</div></label>
+            </div>
+            <div id="tara-legend" style="display: visible;">
+                <input type="checkbox" id="checkbox-tara" name="checkbox-tara" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-tara"><div style="display: inline"><span style="background-color: black;border-radius: 20%;display: inline-block;height: 3.4px;width: 20px;margin-right: 5px;"></span>limite țară</div></label>
+            </div>
         </div>
         <div><p><b><font size="2px">Sursa: </font></b><i><font size="2px"><a href="https://statistica.gov.md/ro/recensamantul-populatiei-si-al-locuintelor-2024-9940.html">RPL-2024, BNS</a></font></i></p></div>
     </div>
