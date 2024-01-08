@@ -299,7 +299,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 1.2,
                     'line-opacity': 1,
-                    'line-color':'blue'
+                    'line-color':'#0ffff7'
                 },
                 'filter': ['==', 'id_lvl', 5]
             },
@@ -324,7 +324,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         map.addLayer({
             'id': 'commune-labels',
             'source': 'sectorizare',
-            'minzoom': 10,
+            'minzoom': 9,
             'type': 'symbol',
             'symbol-avoid-edges': true,
             'text-allow-overlap': true,
