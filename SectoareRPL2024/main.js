@@ -266,7 +266,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
 
         map.addLayer(
             {
-                'id': 'sectoare-enum-polygon',
+                'id': 'commune-polygon',
                 'source': 'sectorizare',
                 'type': 'fill',
                 'layout': {
@@ -290,6 +290,89 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         );
         map.addLayer(
             {
+                'id': 'commune-line-border',
+                'source': 'sectorizare',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 1.2,
+                    'line-opacity': 1,
+                    'line-color':'blue'
+                },
+                'filter': ['==', 'id_lvl', 5]
+            },
+            'sectoare-supv-line-border'
+        );
+        map.addLayer(
+            {
+                'id': 'commune-line-border-selected',
+                'source': 'sectorizare',
+                'type': 'line',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'line-width': 3,
+                    'line-opacity': 1,
+                    'line-color':'#ffffff'
+                },
+                'filter': ['all', ['==', 'id_lvl', 5], ['in', 'obj_code', '']]
+            },
+        );
+        map.addLayer({
+            'id': 'commune-labels',
+            'source': 'sectorizare',
+            'minzoom': 10,
+            'type': 'symbol',
+            'symbol-avoid-edges': true,
+            'text-allow-overlap': true,
+            'symbol-placement': 'point',
+            'font-scale': 100,
+            'layout': {
+                'visibility': 'none',
+                'text-field': ['get', 'name_obj'],
+                'text-variable-anchor': ['center'],
+                'text-radial-offset': 1.5,
+                'text-justify': 'center',
+                'text-size': 12,
+                'text-padding': 2,
+                'text-font': ['Open Sans Regular'],
+            },
+            'paint': {
+            "text-color": "white",
+            },
+            'filter': ['==', 'id_lvl', 5]
+        });
+
+
+        map.addLayer(
+            {
+                'id': 'sectoare-enum-polygon',
+                'source': 'sectorizare',
+                'type': 'fill',
+                'layout': {
+                    'visibility': 'none',
+                },
+                'paint': {
+                    'fill-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'gov_cont'],
+                        0,
+                        '#D5D5D5',
+                        1,
+                        '#c7675d',
+                    ],
+                    'fill-opacity': 0.5,
+                },
+                'filter': ['==', 'id_lvl', 6]
+            },
+            'commune-line-border'
+        );
+        map.addLayer(
+            {
                 'id': 'sectoare-enum-line-border',
                 'source': 'sectorizare',
                 'type': 'line',
@@ -301,9 +384,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'black'
                 },
-                'filter': ['==', 'id_lvl', 5]
+                'filter': ['==', 'id_lvl', 6]
             },
-            'sectoare-supv-line-border'
+            'commune-line-border'
         );
         map.addLayer(
             {
@@ -318,7 +401,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'#ffffff'
                 },
-                'filter': ['all', ['==', 'id_lvl', 5], ['in', 'obj_code', '']]
+                'filter': ['all', ['==', 'id_lvl', 6], ['in', 'obj_code', '']]
             },
         );
         map.addLayer({
@@ -343,7 +426,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             'paint': {
             "text-color": "white",
             },
-            'filter': ['==', 'id_lvl', 5]
+            'filter': ['==', 'id_lvl', 6]
         });
 
         map.addLayer(
@@ -366,7 +449,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     ],
                     'fill-opacity': 0.5,
                 },
-                'filter': ['==', 'id_lvl', 6]
+                'filter': ['==', 'id_lvl', 7]
             },
             'sectoare-enum-line-border'
         );
@@ -383,7 +466,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'white'
                 },
-                'filter': ['==', 'id_lvl', 6]
+                'filter': ['==', 'id_lvl', 7]
             },
             'sectoare-enum-line-border'
         );
@@ -400,7 +483,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                     'line-opacity': 1,
                     'line-color':'#ffffff'
                 },
-                'filter': ['all', ['==', 'id_lvl', 6], ['in', 'obj_code', '']]
+                'filter': ['all', ['==', 'id_lvl', 7], ['in', 'obj_code', '']]
             },
         );
 
@@ -426,7 +509,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             'paint': {
             "text-color": "white",
             },
-            'filter': ['==', 'id_lvl', 6]
+            'filter': ['==', 'id_lvl', 7]
         });
 
         map.addSource('locality', {
@@ -464,6 +547,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         const terNecontrLegend = document.getElementById('teritoriu-necontrolat-legend');
         const sectorLegend = document.getElementById('sector-legend');
         const recenzorLegend = document.getElementById('recenzor-legend');
+        const communeLegend = document.getElementById('commune-legend');
         const supervizorLegend = document.getElementById('supervizor-legend');
         const districtLegend = document.getElementById('district-legend');
         const crsLegend = document.getElementById('crs-legend');
@@ -492,6 +576,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
+                map.setLayoutProperty('commune-polygon', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('commune-labels', 'visibility', 'none');
+
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
@@ -509,6 +598,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 terNecontrLegend.style.display = 'none';
                 sectorLegend .style.display = 'none';
                 recenzorLegend .style.display = 'none';
+                communeLegend.style.display = 'none';
                 supervizorLegend .style.display = 'none';
                 districtLegend.style.display = 'none';
                 crsLegend.style.display = 'none';
@@ -531,6 +621,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
+                map.setLayoutProperty('commune-polygon', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('commune-labels', 'visibility', 'none');
+
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
@@ -549,6 +644,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 terNecontrLegend.style.display = 'block';
                 sectorLegend .style.display = 'none';
                 recenzorLegend .style.display = 'none';
+                communeLegend.style.display = 'none';
                 supervizorLegend .style.display = 'none';
                 districtLegend.style.display = 'none';
                 crsLegend.style.display = 'block';
@@ -571,6 +667,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
+                map.setLayoutProperty('commune-polygon', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('commune-labels', 'visibility', 'none');
+
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
@@ -588,6 +689,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 terNecontrLegend.style.display = 'block';
                 sectorLegend .style.display = 'none';
                 recenzorLegend .style.display = 'none';
+                communeLegend.style.display = 'none';
                 supervizorLegend .style.display = 'none';
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
@@ -610,6 +712,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'visible');
 
+                map.setLayoutProperty('commune-polygon', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('commune-labels', 'visibility', 'none');
+
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
@@ -627,6 +734,52 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 terNecontrLegend.style.display = 'block';
                 sectorLegend .style.display = 'none';
                 recenzorLegend .style.display = 'none';
+                communeLegend.style.display = 'none';
+                supervizorLegend .style.display = 'block';
+                districtLegend.style.display = 'block';
+                crsLegend.style.display = 'block';
+                taraLegend.style.display = 'block';
+            } else if (changeLayerVisibility === 'comuna') {
+                map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
+                map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('lau-tara-line-border-selected', 'visibility', 'none');
+
+                map.setLayoutProperty('crs-polygon', 'visibility', 'none');
+                map.setLayoutProperty('crs-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('crs-line-border-selected', 'visibility', 'none');
+
+                map.setLayoutProperty('district-polygon', 'visibility', 'none');
+                map.setLayoutProperty('district-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
+
+                map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
+
+                map.setLayoutProperty('commune-polygon', 'visibility', 'visible');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('commune-line-border-selected', 'visibility', 'visible');
+                map.setLayoutProperty('commune-labels', 'visibility', 'visible');
+
+                map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'none');
+
+                map.setLayoutProperty('sectoare-polygon', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-line-border', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('sectoare-labels', 'visibility', 'none');
+
+                map.setLayoutProperty('locality-population-labels', 'visibility', 'none');
+
+                contGov.style.display = 'block';
+                terContrLegend.style.display = 'block';
+                terNecontrLegend.style.display = 'block';
+                sectorLegend .style.display = 'none';
+                recenzorLegend .style.display = 'none';
+                communeLegend.style.display = 'block';
                 supervizorLegend .style.display = 'block';
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
@@ -649,6 +802,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
+                map.setLayoutProperty('commune-polygon', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('commune-labels', 'visibility', 'none');
+
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'visible');
@@ -666,6 +824,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 terNecontrLegend.style.display = 'block';
                 sectorLegend .style.display = 'none';
                 recenzorLegend .style.display = 'block';
+                communeLegend.style.display = 'block';
                 supervizorLegend .style.display = 'block';
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
@@ -688,6 +847,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
+                map.setLayoutProperty('commune-polygon', 'visibility', 'none');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
+                map.setLayoutProperty('commune-labels', 'visibility', 'none');
+
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'visible');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
@@ -705,6 +869,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 terNecontrLegend.style.display = 'block';
                 sectorLegend .style.display = 'block';
                 recenzorLegend .style.display = 'block';
+                communeLegend.style.display = 'block';
                 supervizorLegend .style.display = 'block';
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
@@ -847,6 +1012,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'crs-polygon',
                 'district-polygon',
                 'sectoare-supv-polygon',
+                'commune-polygon',
                 'sectoare-enum-polygon',
                 'sectoare-polygon'
             ]
@@ -858,8 +1024,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         map.setFilter('crs-line-border-selected', ['all', ['==', 'id_lvl', 2], ['in', 'obj_code', ...fips]]);
         map.setFilter('district-line-border-selected', ['all', ['==', 'id_lvl', 3], ['in', 'obj_code', ...fips]]);
         map.setFilter('sectoare-supv-line-border-selected',  ['all', ['==', 'id_lvl', 4], ['in', 'obj_code', ...fips]]);
-        map.setFilter('sectoare-enum-line-border-selected',  ['all', ['==', 'id_lvl', 5], ['in', 'obj_code', ...fips]]);
-        map.setFilter('sectoare-line-border-selected',  ['all', ['==', 'id_lvl', 6], ['in', 'obj_code', ...fips]]);
+        map.setFilter('commune-line-border-selected',  ['all', ['==', 'id_lvl', 5], ['in', 'obj_code', ...fips]]);
+        map.setFilter('sectoare-enum-line-border-selected',  ['all', ['==', 'id_lvl', 6], ['in', 'obj_code', ...fips]]);
+        map.setFilter('sectoare-line-border-selected',  ['all', ['==', 'id_lvl', 7], ['in', 'obj_code', ...fips]]);
 
         document.getElementById('pd').innerHTML = states.length
         ?`  
@@ -886,10 +1053,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             } else if (`${states[0].properties.id_lvl}`== 5){
                 document.getElementById('pd').innerHTML = states.length
                 ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <h3>Recenzori: <strong><em><span style="color:red"> ${states[0].properties.noenum.toLocaleString()} </span></strong></em></h3>
                 <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
                 <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
              : `<p>Alegeți o unitate statistică...</p>`;
             } else if (`${states[0].properties.id_lvl}`== 6){
+                document.getElementById('pd').innerHTML = states.length
+                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <h3>Sectoare: <strong><em><span style="color:red"> ${states[0].properties.noea.toLocaleString()} </span></strong></em></h3>
+                <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
+             : `<p>Alegeți o unitate statistică...</p>`;
+            } else if (`${states[0].properties.id_lvl}`== 7){
                 document.getElementById('pd').innerHTML = states.length
                 ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
                 <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
@@ -938,6 +1112,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
         map.getCanvas().style.cursor = 'pointer';
     });
     map.on('mouseleave', 'sectoare-supv-polygon', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('mouseenter','commune-polygon', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'commune-polygon', () => {
         map.getCanvas().style.cursor = '';
     });
 
@@ -998,11 +1179,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             const changeLayerVisibilityBox = event.target.value;
             if (changeLayerVisibilityBox === 'true') {
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'none');
-                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'none');
                 document.getElementById("checkbox-tara").value = false;
             } else if (changeLayerVisibilityBox === 'false'){
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
-                map.setLayoutProperty('lau-tara-line-border2', 'visibility', 'visible');
                 document.getElementById("checkbox-tara").value = true;
             }
         });
@@ -1012,11 +1191,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             const changeLayerVisibilityBox = event.target.value;
             if (changeLayerVisibilityBox === 'true') {
                 map.setLayoutProperty('crs-line-border', 'visibility', 'none');
-                map.setLayoutProperty('crs-line-border2', 'visibility', 'none');
                 document.getElementById("checkbox-crs").value = false;
             } else if (changeLayerVisibilityBox === 'false'){
                 map.setLayoutProperty('crs-line-border', 'visibility', 'visible');
-                map.setLayoutProperty('crs-line-border2', 'visibility', 'visible');
                 document.getElementById("checkbox-crs").value = true;
             }
         });
@@ -1026,11 +1203,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             const changeLayerVisibilityBox = event.target.value;
             if (changeLayerVisibilityBox === 'true') {
                 map.setLayoutProperty('district-line-border', 'visibility', 'none');
-                map.setLayoutProperty('district-line-border2', 'visibility', 'none');
                 document.getElementById("checkbox-district").value = false;
             } else if (changeLayerVisibilityBox === 'false'){
                 map.setLayoutProperty('district-line-border', 'visibility', 'visible');
-                map.setLayoutProperty('district-line-border2', 'visibility', 'visible');
                 document.getElementById("checkbox-district").value = true;
             }
         });
@@ -1040,12 +1215,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             const changeLayerVisibilityBox = event.target.value;
             if (changeLayerVisibilityBox === 'true') {
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'none');
                 document.getElementById("checkbox-supervizor").value = false;
             } else if (changeLayerVisibilityBox === 'false'){
                 map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
-                map.setLayoutProperty('sectoare-supv-line-border2', 'visibility', 'visible');
                 document.getElementById("checkbox-supervizor").value = true;
+            }
+        });
+        document
+        .getElementById('checkbox-commune')
+        .addEventListener('change', (event) => {
+            const changeLayerVisibilityBox = event.target.value;
+            if (changeLayerVisibilityBox === 'true') {
+                map.setLayoutProperty('commune-line-border', 'visibility', 'none');
+                document.getElementById("checkbox-commune").value = false;
+            } else if (changeLayerVisibilityBox === 'false'){
+                map.setLayoutProperty('commune-line-border', 'visibility', 'visible');
+                document.getElementById("checkbox-commune").value = true;
             }
         });
         document
@@ -1054,11 +1239,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             const changeLayerVisibilityBox = event.target.value;
             if (changeLayerVisibilityBox === 'true') {
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'none');
                 document.getElementById("checkbox-recenzor").value = false;
             } else if (changeLayerVisibilityBox === 'false'){
                 map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'visible');
-                map.setLayoutProperty('sectoare-enum-line-border2', 'visibility', 'visible');
                 document.getElementById("checkbox-recenzor").value = true;
             }
         });
