@@ -603,6 +603,23 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 districtLegend.style.display = 'none';
                 crsLegend.style.display = 'none';
                 taraLegend.style.display = 'block';
+
+                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-district").checked = 'checked';
+                document.getElementById("checkbox-crs").checked = 'checked';
+                document.getElementById("checkbox-tara").checked = 'checked';
+
+                
+                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-district").value = 'true';
+                document.getElementById("checkbox-crs").value = 'true';
+                document.getElementById("checkbox-tara").value = 'true';
             } else if (changeLayerVisibility === 'crs') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
@@ -649,6 +666,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 districtLegend.style.display = 'none';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
+
+                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-district").checked = 'checked';
+                document.getElementById("checkbox-crs").checked = 'checked';
+                document.getElementById("checkbox-tara").checked = 'checked';
+
+                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-district").value = 'true';
+                document.getElementById("checkbox-crs").value = 'true';
+                document.getElementById("checkbox-tara").value = 'true';
             } else if (changeLayerVisibility === 'raion') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
@@ -694,6 +727,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
+
+                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-district").checked = 'checked';
+                document.getElementById("checkbox-crs").checked = 'checked';
+                document.getElementById("checkbox-tara").checked = 'checked';
+
+                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-district").value = 'true';
+                document.getElementById("checkbox-crs").value = 'true';
+                document.getElementById("checkbox-tara").value = 'true';
             } else if (changeLayerVisibility === 'supervizor') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
@@ -739,6 +788,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
+
+                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-district").checked = 'checked';
+                document.getElementById("checkbox-crs").checked = 'checked';
+                document.getElementById("checkbox-tara").checked = 'checked';
+
+                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-district").value = 'true';
+                document.getElementById("checkbox-crs").value = 'true';
+                document.getElementById("checkbox-tara").value = 'true';
             } else if (changeLayerVisibility === 'comuna') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
@@ -784,6 +849,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
+
+                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-district").checked = 'checked';
+                document.getElementById("checkbox-crs").checked = 'checked';
+                document.getElementById("checkbox-tara").checked = 'checked';
+
+                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-district").value = 'true';
+                document.getElementById("checkbox-crs").value = 'true';
+                document.getElementById("checkbox-tara").value = 'true';
             } else if (changeLayerVisibility === 'recenzor') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
@@ -829,6 +910,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
+
+                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-district").checked = 'checked';
+                document.getElementById("checkbox-crs").checked = 'checked';
+                document.getElementById("checkbox-tara").checked = 'checked';
+
+                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-district").value = 'true';
+                document.getElementById("checkbox-crs").value = 'true';
+                document.getElementById("checkbox-tara").value = 'true';
             } else if (changeLayerVisibility === 'sector') {
                 map.setLayoutProperty('lau-tara-polygon', 'visibility', 'none');
                 map.setLayoutProperty('lau-tara-line-border', 'visibility', 'visible');
@@ -874,6 +971,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
+
+                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-district").checked = 'checked';
+                document.getElementById("checkbox-crs").checked = 'checked';
+                document.getElementById("checkbox-tara").checked = 'checked';
+
+                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-district").value = 'true';
+                document.getElementById("checkbox-crs").value = 'true';
+                document.getElementById("checkbox-tara").value = 'true';
             } else {
                 console.error('error');
                 }
@@ -883,126 +996,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
     map.on('style.load', () => {
         addAdditionalSourceAndLayer();
     });
-
-    // Add a scale control to the map
-    map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
-    // Add a full screen control to the map
-    map.addControl(new mapboxgl.FullscreenControl());
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
-    // Add geolocate and rotation controls to the map.
-    map.addControl(
-        new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            // When active the map will receive updates to the device's location as it changes.
-            trackUserLocation: true,
-            // Draw an arrow next to the location dot to indicate which direction the device is heading.
-            showUserHeading: true
-        })
-    );
-    
-    // Add a styleSwitcherControler to the map
-    class MapboxStyleSwitcherControl {
-        constructor(styles, options) {
-            this.styles = styles || MapboxStyleSwitcherControl.DEFAULT_STYLES;
-            const defaultStyle = typeof (options) === "string" ? options : options ? options.defaultStyle : undefined;
-            this.defaultStyle = defaultStyle || MapboxStyleSwitcherControl.DEFAULT_STYLE;
-            this.onDocumentClick = this.onDocumentClick.bind(this);
-            this.events = typeof (options) !== "string" && options ? options.eventListeners : undefined;
-        }
-        getDefaultPosition() {
-            const defaultPosition = "top-right";
-            return defaultPosition;
-        }
-        onAdd(map) {
-            this.map = map;
-            this.controlContainer = document.createElement("div");
-            this.controlContainer.classList.add("mapboxgl-ctrl");
-            this.controlContainer.classList.add("mapboxgl-ctrl-group");
-            this.mapStyleContainer = document.createElement("div");
-            this.styleButton = document.createElement("button");
-            this.styleButton.type = "button";
-            this.mapStyleContainer.classList.add("mapboxgl-style-list");
-            for (const style of this.styles) {
-                const styleElement = document.createElement("button");
-                styleElement.type = "button";
-                styleElement.innerText = style.title;
-                styleElement.classList.add(style.title.replace(/[^a-z0-9-]/gi, '_'));
-                styleElement.dataset.uri = JSON.stringify(style.uri);
-                styleElement.addEventListener("click", event => {
-                    const srcElement = event.srcElement;
-                    this.closeModal();
-                    if (srcElement.classList.contains("active")) {
-                        return;
-                    }
-                    if (this.events && this.events.onOpen && this.events.onOpen(event)) {
-                        return;
-                    }
-                    const style = JSON.parse(srcElement.dataset.uri);
-                    this.map.setStyle(style);
-                    const elms = this.mapStyleContainer.getElementsByClassName("active");
-                    while (elms[0]) {
-                        elms[0].classList.remove("active");
-                    }
-                    srcElement.classList.add("active");
-                    if (this.events && this.events.onChange && this.events.onChange(event, style)) {
-                        return;
-                    }
-                });
-                if (style.title === this.defaultStyle) {
-                    styleElement.classList.add("active");
-                }
-                this.mapStyleContainer.appendChild(styleElement);
-            }
-            this.styleButton.classList.add("mapboxgl-ctrl-icon");
-            this.styleButton.classList.add("mapboxgl-style-switcher");
-            this.styleButton.addEventListener("click", event => {
-                if (this.events && this.events.onSelect && this.events.onSelect(event)) {
-                    return;
-                }
-                this.openModal();
-            });
-            document.addEventListener("click", this.onDocumentClick);
-            this.controlContainer.appendChild(this.styleButton);
-            this.controlContainer.appendChild(this.mapStyleContainer);
-            return this.controlContainer;
-        }
-        onRemove() {
-            if (!this.controlContainer || !this.controlContainer.parentNode || !this.map || !this.styleButton) {
-                return;
-            }
-            this.styleButton.removeEventListener("click", this.onDocumentClick);
-            this.controlContainer.parentNode.removeChild(this.controlContainer);
-            document.removeEventListener("click", this.onDocumentClick);
-            this.map = undefined;
-        }
-        closeModal() {
-            if (this.mapStyleContainer && this.styleButton) {
-                this.mapStyleContainer.style.display = "none";
-                this.styleButton.style.display = "block";
-            }
-        }
-        openModal() {
-            if (this.mapStyleContainer && this.styleButton) {
-                this.mapStyleContainer.style.display = "block";
-                this.styleButton.style.display = "none";
-            }
-        }
-        onDocumentClick(event) {
-            if (this.controlContainer && !this.controlContainer.contains(event.target)) {
-                this.closeModal();
-            }
-        }
-    }
-    MapboxStyleSwitcherControl.DEFAULT_STYLE = "Întunecat";
-    MapboxStyleSwitcherControl.DEFAULT_STYLES = [
-        { title: "Întunecat", uri: "mapbox://styles/myshusp/clqvad63b010f01nw7xro4yj2" },
-        { title: "Navigare", uri: "mapbox://styles/myshusp/clp16ohrs019o01pm0jh2c81t" },
-        { title: "Satelit", uri: "mapbox://styles/myshusp/clqvajjpr00yp01o91lrz3zg0" },
-    ];
-    map.addControl(new MapboxStyleSwitcherControl());
 
     // change info window on mousemove
     map.on('click', (event) => {
@@ -1257,3 +1250,171 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 document.getElementById("checkbox-sector").value = true;
             }
         });
+
+        // Add a scale control to the map
+    map.addControl(new mapboxgl.ScaleControl(), 'bottom-left');
+    // Add a full screen control to the map
+    map.addControl(new mapboxgl.FullscreenControl());
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+    // Add geolocate and rotation controls to the map.
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            // When active the map will receive updates to the device's location as it changes.
+            trackUserLocation: true,
+            // Draw an arrow next to the location dot to indicate which direction the device is heading.
+            showUserHeading: true
+        })
+    );
+    
+    // Add a styleSwitcherControler to the map
+    class MapboxStyleSwitcherControl {
+        constructor(styles, options) {
+            this.styles = styles || MapboxStyleSwitcherControl.DEFAULT_STYLES;
+            const defaultStyle = typeof (options) === "string" ? options : options ? options.defaultStyle : undefined;
+            this.defaultStyle = defaultStyle || MapboxStyleSwitcherControl.DEFAULT_STYLE;
+            this.onDocumentClick = this.onDocumentClick.bind(this);
+            this.events = typeof (options) !== "string" && options ? options.eventListeners : undefined;
+        }
+        getDefaultPosition() {
+            const defaultPosition = "top-right";
+            return defaultPosition;
+        }
+        onAdd(map) {
+            this.map = map;
+            this.controlContainer = document.createElement("div");
+            this.controlContainer.classList.add("mapboxgl-ctrl");
+            this.controlContainer.classList.add("mapboxgl-ctrl-group");
+            this.mapStyleContainer = document.createElement("div");
+            this.styleButton = document.createElement("button");
+            this.styleButton.type = "button";
+            this.mapStyleContainer.classList.add("mapboxgl-style-list");
+            for (const style of this.styles) {
+                const styleElement = document.createElement("button");
+                styleElement.type = "button";
+                styleElement.innerText = style.title;
+                styleElement.classList.add(style.title.replace(/[^a-z0-9-]/gi, '_'));
+                styleElement.dataset.uri = JSON.stringify(style.uri);
+                styleElement.addEventListener("click", event => {
+                    const srcElement = event.srcElement;
+                    this.closeModal();
+                    if (srcElement.classList.contains("active")) {
+                        return;
+                    }
+                    if (this.events && this.events.onOpen && this.events.onOpen(event)) {
+                        return;
+                    }
+                    const style = JSON.parse(srcElement.dataset.uri);
+                    this.map.setStyle(style);
+                    const elms = this.mapStyleContainer.getElementsByClassName("active");
+                    while (elms[0]) {
+                        elms[0].classList.remove("active");
+
+                        document.getElementById("layer").value = 'tara';
+
+                        document.getElementById('control-guvernamental').style.display = 'none';
+                        document.getElementById('teritoriu-controlat-legend').style.display = 'none';
+                        document.getElementById('teritoriu-necontrolat-legend').style.display = 'none';
+                        document.getElementById('sector-legend').style.display = 'none';
+                        document.getElementById('recenzor-legend').style.display = 'none';
+                        document.getElementById('commune-legend').style.display = 'none';
+                        document.getElementById('supervizor-legend').style.display = 'none';
+                        document.getElementById('district-legend').style.display = 'none';
+                        document.getElementById('crs-legend').style.display = 'none';
+                        document.getElementById('tara-legend').style.display = 'block';
+
+                        document.getElementById("checkbox-sector").checked = 'checked';
+                        document.getElementById("checkbox-recenzor").checked = 'checked';
+                        document.getElementById("checkbox-commune").checked = 'checked';
+                        document.getElementById("checkbox-supervizor").checked = 'checked';
+                        document.getElementById("checkbox-district").checked = 'checked';
+                        document.getElementById("checkbox-crs").checked = 'checked';
+                        document.getElementById("checkbox-tara").checked = 'checked';
+        
+                        
+                        document.getElementById("checkbox-sector").value = 'true';
+                        document.getElementById("checkbox-recenzor").value = 'true';
+                        document.getElementById("checkbox-commune").value = 'true';
+                        document.getElementById("checkbox-supervizor").value = 'true';
+                        document.getElementById("checkbox-district").value = 'true';
+                        document.getElementById("checkbox-crs").value = 'true';
+                        document.getElementById("checkbox-tara").value = 'true';
+
+                        var states = map.queryRenderedFeatures(event.point, {
+                            layers: [
+                                'lau-tara-polygon',
+                                'crs-polygon',
+                                'district-polygon',
+                                'sectoare-supv-polygon',
+                                'commune-polygon',
+                                'sectoare-enum-polygon',
+                                'sectoare-polygon'
+                            ]
+                        });
+
+                        document.getElementById('pd').innerHTML = states.length
+                        ?`  
+                            <div id="pd"><p>Alegeți o unitate statistică...</p></div>
+                        `
+                        :  `<p>Alegeți o unitate statistică...</p>`;
+                    }
+                    srcElement.classList.add("active");
+                    if (this.events && this.events.onChange && this.events.onChange(event, style)) {
+                        return;
+                    }
+                });
+                if (style.title === this.defaultStyle) {
+                    styleElement.classList.add("active");
+                }
+                this.mapStyleContainer.appendChild(styleElement);
+            }
+            this.styleButton.classList.add("mapboxgl-ctrl-icon");
+            this.styleButton.classList.add("mapboxgl-style-switcher");
+            this.styleButton.addEventListener("click", event => {
+                if (this.events && this.events.onSelect && this.events.onSelect(event)) {
+                    return;
+                }
+                this.openModal();
+            });
+            document.addEventListener("click", this.onDocumentClick);
+            this.controlContainer.appendChild(this.styleButton);
+            this.controlContainer.appendChild(this.mapStyleContainer);
+            return this.controlContainer;
+        }
+        onRemove() {
+            if (!this.controlContainer || !this.controlContainer.parentNode || !this.map || !this.styleButton) {
+                return;
+            }
+            this.styleButton.removeEventListener("click", this.onDocumentClick);
+            this.controlContainer.parentNode.removeChild(this.controlContainer);
+            document.removeEventListener("click", this.onDocumentClick);
+            this.map = undefined;
+        }
+        closeModal() {
+            if (this.mapStyleContainer && this.styleButton) {
+                this.mapStyleContainer.style.display = "none";
+                this.styleButton.style.display = "block";
+            }
+        }
+        openModal() {
+            if (this.mapStyleContainer && this.styleButton) {
+                this.mapStyleContainer.style.display = "block";
+                this.styleButton.style.display = "none";
+            }
+        }
+        onDocumentClick(event) {
+            if (this.controlContainer && !this.controlContainer.contains(event.target)) {
+                this.closeModal();
+            }
+        }
+    }
+    MapboxStyleSwitcherControl.DEFAULT_STYLE = "Întunecat";
+    MapboxStyleSwitcherControl.DEFAULT_STYLES = [
+        { title: "Întunecat", uri: "mapbox://styles/myshusp/clqvad63b010f01nw7xro4yj2" },
+        { title: "Navigare", uri: "mapbox://styles/myshusp/clp16ohrs019o01pm0jh2c81t" },
+        { title: "Satelit", uri: "mapbox://styles/myshusp/clqvajjpr00yp01o91lrz3zg0" },
+    ];
+    map.addControl(new MapboxStyleSwitcherControl());
