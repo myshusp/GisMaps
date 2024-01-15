@@ -159,7 +159,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 2, //1
                     'line-opacity': 1,
-                    'line-color':'yellow'
+                    'line-color':'#0ffff7'
                 },
                 'filter': ['==', 'id_lvl', 3]
             },
@@ -217,7 +217,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 1.5, //0.5
                     'line-opacity': 1,
-                    'line-color':'orange'
+                    'line-color':'yellow'
                 },
                 'filter': ['==', 'id_lvl', 4]
             },
@@ -299,7 +299,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 1.2,
                     'line-opacity': 1,
-                    'line-color':'#0ffff7'
+                    'line-color':'#F37748'
                 },
                 'filter': ['==', 'id_lvl', 5]
             },
@@ -464,7 +464,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 0.5,
                     'line-opacity': 1,
-                    'line-color':'white'
+                    'line-color':'grey'
                 },
                 'filter': ['==', 'id_lvl', 7]
             },
@@ -781,25 +781,25 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 contGov.style.display = 'block';
                 terContrLegend.style.display = 'block';
                 terNecontrLegend.style.display = 'block';
-                sectorLegend .style.display = 'none';
-                recenzorLegend .style.display = 'none';
-                communeLegend.style.display = 'none';
+                sectorLegend .style.display = 'block';
+                recenzorLegend .style.display = 'block';
+                communeLegend.style.display = 'block';
                 supervizorLegend .style.display = 'block';
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
 
-                document.getElementById("checkbox-sector").checked = 'checked';
-                document.getElementById("checkbox-recenzor").checked = 'checked';
-                document.getElementById("checkbox-commune").checked = 'checked';
+                document.getElementById("checkbox-sector").checked = '';
+                document.getElementById("checkbox-recenzor").checked = '';
+                document.getElementById("checkbox-commune").checked = '';
                 document.getElementById("checkbox-supervizor").checked = 'checked';
                 document.getElementById("checkbox-district").checked = 'checked';
                 document.getElementById("checkbox-crs").checked = 'checked';
                 document.getElementById("checkbox-tara").checked = 'checked';
 
-                document.getElementById("checkbox-sector").value = 'true';
-                document.getElementById("checkbox-recenzor").value = 'true';
-                document.getElementById("checkbox-commune").value = 'true';
+                document.getElementById("checkbox-sector").value = 'false';
+                document.getElementById("checkbox-recenzor").value = 'false';
+                document.getElementById("checkbox-commune").value = 'false';
                 document.getElementById("checkbox-supervizor").value = 'true';
                 document.getElementById("checkbox-district").value = 'true';
                 document.getElementById("checkbox-crs").value = 'true';
@@ -818,7 +818,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
@@ -842,26 +842,26 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 contGov.style.display = 'block';
                 terContrLegend.style.display = 'block';
                 terNecontrLegend.style.display = 'block';
-                sectorLegend .style.display = 'none';
-                recenzorLegend .style.display = 'none';
+                sectorLegend .style.display = 'block';
+                recenzorLegend .style.display = 'block';
                 communeLegend.style.display = 'block';
                 supervizorLegend .style.display = 'block';
                 districtLegend.style.display = 'block';
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
 
-                document.getElementById("checkbox-sector").checked = 'checked';
-                document.getElementById("checkbox-recenzor").checked = 'checked';
+                document.getElementById("checkbox-sector").checked = '';
+                document.getElementById("checkbox-recenzor").checked = '';
                 document.getElementById("checkbox-commune").checked = 'checked';
-                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-supervizor").checked = '';
                 document.getElementById("checkbox-district").checked = 'checked';
                 document.getElementById("checkbox-crs").checked = 'checked';
                 document.getElementById("checkbox-tara").checked = 'checked';
 
-                document.getElementById("checkbox-sector").value = 'true';
-                document.getElementById("checkbox-recenzor").value = 'true';
+                document.getElementById("checkbox-sector").value = 'false';
+                document.getElementById("checkbox-recenzor").value = 'false';
                 document.getElementById("checkbox-commune").value = 'true';
-                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-supervizor").value = 'false';
                 document.getElementById("checkbox-district").value = 'true';
                 document.getElementById("checkbox-crs").value = 'true';
                 document.getElementById("checkbox-tara").value = 'true';
@@ -879,12 +879,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('commune-polygon', 'visibility', 'none');
-                map.setLayoutProperty('commune-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'none');
                 map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('commune-labels', 'visibility', 'none');
 
@@ -903,7 +903,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 contGov.style.display = 'block';
                 terContrLegend.style.display = 'block';
                 terNecontrLegend.style.display = 'block';
-                sectorLegend .style.display = 'none';
+                sectorLegend .style.display = 'block';
                 recenzorLegend .style.display = 'block';
                 communeLegend.style.display = 'block';
                 supervizorLegend .style.display = 'block';
@@ -911,18 +911,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 crsLegend.style.display = 'block';
                 taraLegend.style.display = 'block';
 
-                document.getElementById("checkbox-sector").checked = 'checked';
+                document.getElementById("checkbox-sector").checked = '';
                 document.getElementById("checkbox-recenzor").checked = 'checked';
-                document.getElementById("checkbox-commune").checked = 'checked';
-                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-commune").checked = '';
+                document.getElementById("checkbox-supervizor").checked = '';
                 document.getElementById("checkbox-district").checked = 'checked';
                 document.getElementById("checkbox-crs").checked = 'checked';
                 document.getElementById("checkbox-tara").checked = 'checked';
 
-                document.getElementById("checkbox-sector").value = 'true';
+                document.getElementById("checkbox-sector").value = 'false';
                 document.getElementById("checkbox-recenzor").value = 'true';
-                document.getElementById("checkbox-commune").value = 'true';
-                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-commune").value = 'false';
+                document.getElementById("checkbox-supervizor").value = 'false';
                 document.getElementById("checkbox-district").value = 'true';
                 document.getElementById("checkbox-crs").value = 'true';
                 document.getElementById("checkbox-tara").value = 'true';
@@ -940,17 +940,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 map.setLayoutProperty('district-line-border-selected', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-supv-polygon', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-supv-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-supv-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('commune-polygon', 'visibility', 'none');
-                map.setLayoutProperty('commune-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('commune-line-border', 'visibility', 'none');
                 map.setLayoutProperty('commune-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('commune-labels', 'visibility', 'none');
 
                 map.setLayoutProperty('sectoare-enum-polygon', 'visibility', 'none');
-                map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'visible');
+                map.setLayoutProperty('sectoare-enum-line-border', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-line-border-selected', 'visibility', 'none');
                 map.setLayoutProperty('sectoare-enum-labels', 'visibility', 'none');
 
@@ -973,17 +973,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 taraLegend.style.display = 'block';
 
                 document.getElementById("checkbox-sector").checked = 'checked';
-                document.getElementById("checkbox-recenzor").checked = 'checked';
-                document.getElementById("checkbox-commune").checked = 'checked';
-                document.getElementById("checkbox-supervizor").checked = 'checked';
+                document.getElementById("checkbox-recenzor").checked = '';
+                document.getElementById("checkbox-commune").checked = '';
+                document.getElementById("checkbox-supervizor").checked = '';
                 document.getElementById("checkbox-district").checked = 'checked';
                 document.getElementById("checkbox-crs").checked = 'checked';
                 document.getElementById("checkbox-tara").checked = 'checked';
 
                 document.getElementById("checkbox-sector").value = 'true';
-                document.getElementById("checkbox-recenzor").value = 'true';
-                document.getElementById("checkbox-commune").value = 'true';
-                document.getElementById("checkbox-supervizor").value = 'true';
+                document.getElementById("checkbox-recenzor").value = 'false';
+                document.getElementById("checkbox-commune").value = 'false';
+                document.getElementById("checkbox-supervizor").value = 'false';
                 document.getElementById("checkbox-district").value = 'true';
                 document.getElementById("checkbox-crs").value = 'true';
                 document.getElementById("checkbox-tara").value = 'true';
