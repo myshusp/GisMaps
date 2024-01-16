@@ -250,7 +250,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             'font-scale': 100,
             'layout': {
                 'visibility': 'none',
-                'text-field': ['get', 'name_obj'],
+                'text-field': [
+                    'format',
+                    ['get', 'name_obj'],
+                    { 'font-scale': 1 },
+                    '\n',
+                    '(',
+                    {},
+                    ['get', 'noenum'],
+                    { 'font-scale': 0.8 },
+                    ')'
+                    ],
                 'text-variable-anchor': ['center'],
                 'text-radial-offset': 1.5,
                 'text-justify': 'center',
@@ -332,7 +342,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             'font-scale': 100,
             'layout': {
                 'visibility': 'none',
-                'text-field': ['get', 'name_obj'],
+                'text-field': [
+                    'format',
+                    ['get', 'name_obj'],
+                    { 'font-scale': 1 },
+                    '\n',
+                    '(',
+                    {},
+                    ['get', 'noenum'],
+                    { 'font-scale': 0.8 },
+                    ')'
+                    ],
                 'text-variable-anchor': ['center'],
                 'text-radial-offset': 1.5,
                 'text-justify': 'center',
@@ -415,7 +435,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             'font-scale': 100,
             'layout': {
                 'visibility': 'none',
-                'text-field': ['get', 'name_obj'],
+                'text-field': [
+                    'format',
+                    ['get', 'name_obj'],
+                    { 'font-scale': 1 },
+                    '\n',
+                    '(',
+                    {},
+                    ['get', 'nodwell'],
+                    { 'font-scale': 0.8 },
+                    ')'
+                    ],
                 'text-variable-anchor': ['center'],
                 'text-radial-offset': 1.5,
                 'text-justify': 'center',
@@ -464,7 +494,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'paint': {
                     'line-width': 0.5,
                     'line-opacity': 1,
-                    'line-color':'grey'
+                    'line-color':'#9D9D9D'
                 },
                 'filter': ['==', 'id_lvl', 7]
             },
@@ -498,7 +528,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
             'font-scale': 100,
             'layout': {
                 'visibility': 'none',
-                'text-field': ['get', 'name_obj'],
+                'text-field': [
+                    'format',
+                    ['get', 'name_obj'],
+                    { 'font-scale': 1 },
+                    '\n',
+                    '(',
+                    {},
+                    ['get', 'nodwell'],
+                    { 'font-scale': 0.8 },
+                    ')'
+                    ],
                 'text-variable-anchor': ['center'],
                 'text-radial-offset': 1.5,
                 'text-justify': 'center',
