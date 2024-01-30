@@ -531,12 +531,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
                 'text-field': [
                     'format',
                     ['get', 'name_obj'],
-                    { 'font-scale': 1 },
+                    {'font-scale': 1 },
+                    '\n',
+                    {'font-scale': 0.8 },
+                    '[',
+                    ['get', 'code_supv'],
+                    {'font-scale': 0.8 },
+                    ', ',
+                    ['get', 'code_enum'],
+                    {'font-scale': 0.8 },
+                    ']',
+                    {},
                     '\n',
                     '(',
                     {},
                     ['get', 'nodwell'],
-                    { 'font-scale': 0.8 },
+                    {'font-scale': 0.8 },
                     ')'
                     ],
                 'text-variable-anchor': ['center'],
@@ -1098,7 +1108,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibXlzaHVzcCIsImEiOiJja2lyZmtvNHgyNTZtMnFxanR1c
              : `<p>Alegeți o unitate statistică...</p>`;
             } else if (`${states[0].properties.id_lvl}`== 7){
                 document.getElementById('pd').innerHTML = states.length
-                ? `<h3>Denumire: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                ? `<h3>Sector: <strong><em><span style="color:red"> ${states[0].properties.name_obj} </span></strong></em></h3>
+                <h3>Recenzor: <strong><em><span style="color:red"> ${states[0].properties.code_enum} </span></strong></em></h3>
+                <h3>Supervizor: <strong><em><span style="color:red"> ${states[0].properties.code_supv} </span></strong></em></h3>
                 <h3>Locuințe: <strong><em><span style="color:red"> ${states[0].properties.nodwell.toLocaleString()} </span></strong></em></h3>`
              : `<p>Alegeți o unitate statistică...</p>`;
             } else {
