@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sectoare RPL-2024</title>
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <button type="button" class="button-open-map-overlay"></button>
+
+    <div id="features" class="map-overlay">
+        <div class="button-close-map-overlay">-</div>
+        <h2>Caracteristici</h2>
+        <div class="map-overlay-inner">
+            <!-- <p>Nivelul administrativ:</p> -->
+            <fieldset>
+                <select id="layer" name="layer">
+                <!-- Each value matches a layer ID. -->
+                <option value="tara">Țară</option>
+                <option value="crs">CRS</option>
+                <option value="raion">Raion</option>
+                <option value="supervizor">Supervizor</option>
+                <option value="comuna">Comună</option>
+                <option value="recenzor">Recenzor</option>
+                <option value="sector">Sector</option>
+                </select>
+            </fieldset>
+        </div>
+        <div id="pd"><p>Alegeți o unitate statistică...</p></div>
+    </div>
+
+    <button type="button" class="button-open-legend"></button>
+
+    <div id="map-legend" class="content" style="display: block">
+        <div class="button-close-legend">-</div>
+        <h3></h3>
+        <div id="groups" style="margin: 15px;">
+            <h3 id="control-guvernamental" style="display: none">Control guvernamental</h3>
+
+            <div id="teritoriu-controlat-legend" style="display: none"><span style="background-color: #c7675d"></span>da</div>
+            <div id="teritoriu-necontrolat-legend" style="display: none"><span style="background-color: #D5D5D5"></span>nu</div>
+            <p></p>
+            <div id="sector-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-sector" name="checkbox-sector" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-sector"><div style="display: inline"><span style="background-color: #9D9D9D;border-radius: 20%;display: inline-block;height: 1.9px;width: 20px;margin-right: 5px;"></span>limite sector</div></label>
+            </div>
+            <div id="recenzor-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-recenzor" name="checkbox-recenzor" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-recenzor"><div style="display: inline"><span style="background-color: black;border-radius: 20%;display: inline-block;height: 2px;width: 20px;margin-right: 5px;"></span>limite sarcină recenzor</div></label>
+            </div>
+            <div id="sectAdmChis-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-sectAdmChis" name="checkbox-sectAdmChis" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-sectAdmChis"><div style="display: inline"><span style="background-color: orange;border-radius: 20%;display: inline-block;height: 2.5px;width: 20px;margin-right: 5px;"></span>sectoare administrative Chișinău</div></label>
+            </div>
+            <div id="commune-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-commune" name="checkbox-commune" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-commune"><div style="display: inline"><span style="background-color: #F37748;border-radius: 20%;display: inline-block;height: 2.5px;width: 20px;margin-right: 5px;"></span>limite comună</div></label>
+            </div>
+            <div id="supervizor-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-supervizor" name="checkbox-supervizor" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-supervizor"><div style="display: inline"><span style="background-color: yellow;border-radius: 20%;display: inline-block;height: 2.7px;width: 20px;margin-right: 5px;"></span>limite secție supervizare</div></label>
+            </div>
+            <div id="district-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-district" name="checkbox-district" checked="checked" value="true" style="display: visible;">
+            <label for="checkbox-district"><div style="display: inline"><span style="background-color: #0ffff7;border-radius: 20%;display: inline-block;height: 3px;width: 20px;margin-right: 5px;"></span>limite raion</div></label>
+            </div>
+            <div id="crs-legend" style="display: none;">
+                <input type="checkbox" id="checkbox-crs" name="checkbox-crs" checked="checked" value="true" style="display: visible;">
+            <label for="checkbox-crs"><div style="display: inline"><span style="background-color: red;border-radius: 20%;display: inline-block;height: 3.2px;width: 20px;margin-right: 5px;"></span>limite CRS</div></label>
+            </div>
+            <div id="tara-legend" style="display: visible;">
+                <input type="checkbox" id="checkbox-tara" name="checkbox-tara" checked="checked" value="true" style="display: visible;">
+                <label for="checkbox-tara"><div style="display: inline"><span style="background-color: black;border-radius: 20%;display: inline-block;height: 3.4px;width: 20px;margin-right: 5px;"></span>limite țară</div></label>
+            </div>
+        </div>
+        <div><p><b><font size="2px">Sursa: </font></b><i><font size="2px"><a href="https://statistica.gov.md/ro/recensamantul-populatiei-si-al-locuintelor-2024-9940.html">RPL-2024, BNS</a></font></i></p></div>
+    </div>
+
+
+    <script src="main.js"></script>
+
+</body>
+</html>
