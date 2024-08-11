@@ -35,6 +35,7 @@ h2 {
     overflow: auto;
     border-radius: 3px;
     max-height: fit-content;
+	max-width: 250px;
   }
   
   .map-overlay .map-overlay-inner {
